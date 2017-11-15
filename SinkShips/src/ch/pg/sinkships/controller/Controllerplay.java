@@ -25,7 +25,7 @@ public class Controllerplay {
 			box91, box92, box93, box94, box95, box96, box97, box98, box99, box100;
 
 	Game Game = new Game();
-	
+
 	Node Text;
 
 	private Image picture;
@@ -50,28 +50,24 @@ public class Controllerplay {
 				Game.table1.checkforhit(X, Y);
 			}
 			if (Game.table1.isCheckforhit() == true || Game.table2.isCheckforhit() == true) {
-				picture = new Image("/ch/pg/sinkships/sources/x.jpg");
+				picture = new Image("/ch/pg/sinkships/sources/hit.jpg");
 			} else {
 				picture = new Image("/ch/pg/sinkships/sources/dot.jpg");
 			}
 			hit.setImage(picture);
 			Game.table1.setCheckforhit(false);
 			Game.table2.setCheckforhit(false);
-
-			getNodeFromGridPane();
 			
-			ImageView you = (ImageView) Text;
-			
-			you.setImage(picture);
+			owntable();
 		}
 	}
 
 	/**
-	 * for getting the Source of the other gridpane
+	 * for getting the Node(source) of the ImageView at the location (Row and Column)
 	 * 
 	 * @return
 	 */
-	private Node getNodeFromGridPane() {
+	private void getNodeFromGridPane() {
 		for (Node node : gridyou.getChildren()) {
 			if (GridPane.getColumnIndex(node) != null && GridPane.getRowIndex(node) != null) {
 				if (GridPane.getColumnIndex(node) == Y && GridPane.getRowIndex(node) == X) {
@@ -79,25 +75,28 @@ public class Controllerplay {
 				}
 			}
 		}
-		return null;
 	}
 
-	// private void owntable() {
-	// getNodeFromGridPane(gridyou, Y, X);
-	//
-	//
-	//
-	// if (Game.getActualTable() == "table1") {
-	// ch.pg.sinkships.model.Game.table2.checkforhit(X, Y);
-	// } else if (Game.getActualTable() == "table2") {
-	// ch.pg.sinkships.model.Game.table1.checkforhit(X, Y);
-	// }
-	// if (ch.pg.sinkships.model.Game.table1.isCheckforhit() == true ||
-	// ch.pg.sinkships.model.Game.table2.isCheckforhit() == true) {
-	// picture = new Image("/ch/pg/sinkships/sources/x.jpg");
-	// } else {
-	// picture = new Image("/ch/pg/sinkships/sources/dot.jpg");
-	// }
-	//
-	// }
+	/**
+	 * for Later on with the Server
+	 */
+	private void owntable() {
+		getNodeFromGridPane();
+
+		if (Game.getActualTable() == "table1") {
+			ch.pg.sinkships.model.Game.table2.checkforhit(X, Y);
+		} else if (Game.getActualTable() == "table2") {
+			ch.pg.sinkships.model.Game.table1.checkforhit(X, Y);
+		}
+		if (ch.pg.sinkships.model.Game.table1.isCheckforhit() == true
+				|| ch.pg.sinkships.model.Game.table2.isCheckforhit() == true) {
+			picture = new Image("/ch/pg/sinkships/sources/hit.jpg");
+		} else {
+			picture = new Image("/ch/pg/sinkships/sources/dot.jpg");
+		}
+		ImageView you = (ImageView) Text;
+
+		you.setImage(picture);
+
+	}
 }
