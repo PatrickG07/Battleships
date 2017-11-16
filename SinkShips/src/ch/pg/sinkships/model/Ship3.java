@@ -3,10 +3,10 @@ package ch.pg.sinkships.model;
 public class Ship3 {
 
 	Boolean destroyd;
-	Boolean Diagonal;
+	Boolean Horizontal = true;
 
-	int pos1X = 5, pos2X, pos3X;
-	int pos1Y = 5, pos2Y, pos3Y;
+	int pos1X, pos2X, pos3X;
+	int pos1Y, pos2Y, pos3Y;
 
 	int Health = 3;
 
@@ -18,12 +18,12 @@ public class Ship3 {
 		this.destroyd = destroyd;
 	}
 
-	public Boolean getDiagonal() {
-		return Diagonal;
+	public Boolean getHorizontal() {
+		return Horizontal;
 	}
 
-	public void setDiagonal(Boolean diagonal) {
-		Diagonal = diagonal;
+	public void setHorizontal(Boolean diagonal) {
+		Horizontal = diagonal;
 	}
 
 	public int getPos1X() {

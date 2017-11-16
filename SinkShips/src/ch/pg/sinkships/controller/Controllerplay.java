@@ -63,9 +63,8 @@ public class Controllerplay {
 	}
 
 	/**
-	 * for getting the Node(source) of the ImageView at the location (Row and Column)
-	 * 
-	 * @return
+	 * for getting the Node(source) of the ImageView at the location (Row and
+	 * Column)
 	 */
 	private void getNodeFromGridPane() {
 		for (Node node : gridyou.getChildren()) {
@@ -80,6 +79,7 @@ public class Controllerplay {
 	/**
 	 * for Later on with the Server
 	 */
+	@SuppressWarnings("static-access")
 	private void owntable() {
 		getNodeFromGridPane();
 
@@ -95,6 +95,9 @@ public class Controllerplay {
 			picture = new Image("/ch/pg/sinkships/sources/dot.jpg");
 		}
 		ImageView you = (ImageView) Text;
+		
+		Game.table1.setCheckforhit(false);
+		Game.table2.setCheckforhit(false);
 
 		you.setImage(picture);
 

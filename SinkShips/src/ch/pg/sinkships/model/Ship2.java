@@ -3,7 +3,7 @@ package ch.pg.sinkships.model;
 public class Ship2 {
 
 	Boolean destroyd;
-	Boolean Diagonal;
+	Boolean Horizontal = true;
 
 	int pos1X, pos2X;
 	int pos1Y, pos2Y;
@@ -18,12 +18,12 @@ public class Ship2 {
 		this.destroyd = destroyd;
 	}
 
-	public Boolean getDiagonal() {
-		return Diagonal;
+	public Boolean getHorizontal() {
+		return Horizontal;
 	}
 
-	public void setDiagonal(Boolean diagonal) {
-		Diagonal = diagonal;
+	public void setHorizontal(Boolean diagonal) {
+		Horizontal = diagonal;
 	}
 
 	public int getPos1X() {
