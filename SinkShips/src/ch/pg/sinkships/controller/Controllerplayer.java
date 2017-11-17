@@ -44,7 +44,6 @@ public class Controllerplayer {
 	 * 
 	 * @param e
 	 */
-	@SuppressWarnings("static-access")
 	@FXML
 	protected void Play(ActionEvent e) {
 		createBoats();
@@ -66,7 +65,6 @@ public class Controllerplayer {
 		StartSinkShips.loadScene("/ch/pg/sinkships/view/Main");
 	}
 
-	@SuppressWarnings("static-access")
 	@FXML
 	protected void onRotate(MouseEvent e) {
 		Rectangle rec = (Rectangle) e.getSource();
@@ -181,9 +179,10 @@ public class Controllerplayer {
 		}
 	}
 
-	public void createBoats() {
+	private void createBoats() {
 		X = gridyou.getLayoutX() + 15;
 		Y = gridyou.getLayoutY() + 15;
+
 		int sip1 = 2, sip2 = 3, sip3 = 3, sip4 = 4, sip5 = 5;
 
 		for (int x = 1; x < 11; x++) {
@@ -247,7 +246,6 @@ public class Controllerplayer {
 					sip4--;
 				} else if (X > rec5.getX() && X < rec5.getX() + rec5.getWidth() && Y > rec5.getY()
 						&& Y < rec5.getY() + rec5.getHeight()) {
-
 					if (sip5 == 5) {
 						Game.table1.Ship5.setPos1X(x);
 						Game.table1.Ship5.setPos1Y(y);
@@ -268,6 +266,42 @@ public class Controllerplayer {
 				}
 
 			}
+		}
+
+		// check if rec2, rec3, rec4, rec5 is near rec1
+		if (rec1.getX() - 15 < rec2.getX() + 15 && rec1.getX() + rec1.getWidth() + 15 > rec2.getX() - 15
+				&& rec1.getY() - 15 < rec2.getX() + 15 && rec1.getY() + rec1.getHeight() + 15 > rec2.getY() - 15
+				|| rec1.getX() - 15 < rec3.getX() + 15 && rec1.getX() + rec1.getWidth() + 15 > rec3.getX() - 15
+						&& rec1.getY() - 15 < rec3.getX() + 15 && rec1.getY() + rec1.getHeight() + 15 > rec3.getY() - 15
+				|| rec1.getX() - 15 < rec4.getX() + 15 && rec1.getX() + rec1.getWidth() + 15 > rec4.getX() - 15
+						&& rec1.getY() - 15 < rec4.getX() + 15 && rec1.getY() + rec1.getHeight() + 15 > rec4.getY() - 15
+				|| rec1.getX() - 15 < rec5.getX() + 15 && rec1.getX() + rec1.getWidth() + 15 > rec5.getX() - 15
+						&& rec1.getY() - 15 < rec5.getX() + 15
+						&& rec1.getY() + rec1.getHeight() + 15 > rec5.getY() - 15) {
+			Game.table1.Ship1.setPos1X(0);
+		}
+		// check if rec3, rec4, rec5 is near rec2
+		if (rec2.getX() - 15 < rec3.getX() + 15 && rec2.getX() + rec2.getWidth() + 15 > rec3.getX() - 15
+				&& rec2.getY() - 15 < rec3.getX() + 15 && rec2.getY() + rec2.getHeight() + 15 > rec3.getY() - 15
+				|| rec2.getX() - 15 < rec4.getX() + 15 && rec2.getX() + rec2.getWidth() + 15 > rec4.getX() - 15
+						&& rec2.getY() - 15 < rec4.getX() + 15 && rec2.getY() + rec2.getHeight() + 15 > rec4.getY() - 15
+				|| rec2.getX() - 15 < rec5.getX() + 15 && rec2.getX() + rec2.getWidth() + 15 > rec5.getX() - 15
+						&& rec2.getY() - 15 < rec5.getX() + 15
+						&& rec2.getY() + rec2.getHeight() + 15 > rec5.getY() - 15) {
+			Game.table1.Ship1.setPos1X(0);
+		}
+		// check if rec4, rec5 is near rec3
+		if (rec3.getX() - 15 < rec4.getX() + 15 && rec3.getX() + rec3.getWidth() + 15 > rec4.getX() - 15
+				&& rec3.getY() - 15 < rec4.getX() + 15 && rec3.getY() + rec3.getHeight() + 15 > rec4.getY() - 15
+				|| rec3.getX() - 15 < rec5.getX() + 15 && rec3.getX() + rec3.getWidth() + 15 > rec5.getX() - 15
+						&& rec3.getY() - 15 < rec5.getX() + 15
+						&& rec3.getY() + rec3.getHeight() + 15 > rec5.getY() - 15) {
+			Game.table1.Ship1.setPos1X(0);
+		}
+		// check if rec5 is near rec4
+		if (rec4.getX() - 15 < rec5.getX() + 15 && rec4.getX() + rec4.getWidth() + 15 > rec5.getX() - 15
+				&& rec4.getY() - 15 < rec5.getX() + 15 && rec4.getY() + rec4.getHeight() + 15 > rec5.getY() - 15) {
+			Game.table1.Ship1.setPos1X(0);
 		}
 	}
 }

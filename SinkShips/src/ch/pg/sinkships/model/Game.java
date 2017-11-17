@@ -1,18 +1,20 @@
 package ch.pg.sinkships.model;
 
+import ch.pg.sinkships.model.Table;
+
 public class Game {
 	
 	public static Table table1 = new Table();
 	public static Table table2 = new Table();
 
-	String actualTable = "table1";
+	static String actualTable = "table1";
 
-	public String getActualTable() {
+	public static String getActualTable() {
 		return actualTable;
 	}
 
 	public void setAtualTable(String table) {
-		this.actualTable = table;
+		Game.actualTable = table;
 	}
 }
 

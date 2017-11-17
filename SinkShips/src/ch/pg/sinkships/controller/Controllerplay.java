@@ -1,8 +1,11 @@
 package ch.pg.sinkships.controller;
 
 import ch.pg.sinkships.model.Game;
+import ch.pg.sinkships.view.StartSinkShips;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -23,8 +26,6 @@ public class Controllerplay {
 			box61, box62, box63, box64, box65, box66, box67, box68, box69, box70, box71, box72, box73, box74, box75,
 			box76, box77, box78, box79, box80, box81, box82, box83, box84, box85, box86, box87, box88, box89, box90,
 			box91, box92, box93, box94, box95, box96, box97, box98, box99, box100;
-
-	Game Game = new Game();
 
 	Node Text;
 
@@ -58,6 +59,12 @@ public class Controllerplay {
 			Game.table1.setCheckforhit(false);
 			Game.table2.setCheckforhit(false);
 			
+			if(Game.table2.Ship1.getDestroyd() == true && Game.table2.Ship2.getDestroyd() == true && Game.table2.Ship3.getDestroyd() == true && Game.table2.Ship4.getDestroyd() == true && Game.table2.Ship5.getDestroyd() == true) {
+				End();
+			}
+			
+//			Game.setAtualTable("table1");
+			
 			owntable();
 		}
 	}
@@ -79,17 +86,16 @@ public class Controllerplay {
 	/**
 	 * for Later on with the Server
 	 */
-	@SuppressWarnings("static-access")
 	private void owntable() {
 		getNodeFromGridPane();
 
 		if (Game.getActualTable() == "table1") {
-			ch.pg.sinkships.model.Game.table2.checkforhit(X, Y);
+			Game.table2.checkforhit(X, Y);
 		} else if (Game.getActualTable() == "table2") {
-			ch.pg.sinkships.model.Game.table1.checkforhit(X, Y);
+			Game.table1.checkforhit(X, Y);
 		}
-		if (ch.pg.sinkships.model.Game.table1.isCheckforhit() == true
-				|| ch.pg.sinkships.model.Game.table2.isCheckforhit() == true) {
+		if (Game.table1.isCheckforhit() == true
+				|| Game.table2.isCheckforhit() == true) {
 			picture = new Image("/ch/pg/sinkships/sources/hit.jpg");
 		} else {
 			picture = new Image("/ch/pg/sinkships/sources/dot.jpg");
@@ -100,6 +106,28 @@ public class Controllerplay {
 		Game.table2.setCheckforhit(false);
 
 		you.setImage(picture);
+		
+		if(Game.table1.Ship1.getDestroyd() == true && Game.table1.Ship2.getDestroyd() == true && Game.table1.Ship3.getDestroyd() == true && Game.table1.Ship4.getDestroyd() == true && Game.table1.Ship5.getDestroyd() == true) {
+			End();
+		}
+		
+//		Game.setAtualTable("table2");
+	}
+	
+	private void End() {
+		String Text;
+		if(Game.table2.Ship1.getDestroyd() == true && Game.table2.Ship2.getDestroyd() == true && Game.table2.Ship3.getDestroyd() == true && Game.table2.Ship4.getDestroyd() == true && Game.table2.Ship5.getDestroyd() == true) {
+			Text = "Player 2 Wonn";
+		}else {
+			Text = "You Wonn";
+		}
+		
+		Alert alert = new Alert(AlertType.INFORMATION);
+		alert.setTitle("Winner!");
+		alert.setHeaderText(Text);
 
+		alert.showAndWait();
+
+		StartSinkShips.loadScene("/ch/pg/sinkships/view/Main");
 	}
 }

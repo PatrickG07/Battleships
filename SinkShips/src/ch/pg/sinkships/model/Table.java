@@ -1,12 +1,17 @@
 package ch.pg.sinkships.model;
 
+import ch.pg.sinkships.model.Ship2;
+import ch.pg.sinkships.model.Ship3;
+import ch.pg.sinkships.model.Ship4;
+import ch.pg.sinkships.model.Ship5;
+
 public class Table {
 
-	public static Ship2 Ship1 = new Ship2();
-	public static Ship3 Ship2 = new Ship3();
-	public static Ship3 Ship3 = new Ship3();
-	public static Ship4 Ship4 = new Ship4();
-	public static Ship5 Ship5 = new Ship5();
+	public Ship2 Ship1 = new Ship2();
+	public Ship3 Ship2 = new Ship3();
+	public Ship3 Ship3 = new Ship3();
+	public Ship4 Ship4 = new Ship4();
+	public Ship5 Ship5 = new Ship5();
 
 	boolean checkforhit;
 
