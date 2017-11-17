@@ -12,9 +12,9 @@ import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 
 /**
- * Controller class for set player name.
+ * Controller class for set the Sips at the Locations
  * 
- * @author Patrick
+ * @author PatrickG07
  */
 public class Controllerplayer {
 	private static final Duration TRANSLATE_DURATION = Duration.millis(1);
@@ -40,7 +40,7 @@ public class Controllerplayer {
 			box91, box92, box93, box94, box95, box96, box97, box98, box99, box100;
 
 	/**
-	 * 
+	 * If the ships are correctly placed it goes to the next scene 
 	 * 
 	 * @param e
 	 */
@@ -48,14 +48,17 @@ public class Controllerplayer {
 	protected void Play(ActionEvent e) {
 		createBoats();
 		if (Game.table1.Ship1.getPos1X() != 0 && Game.table1.Ship2.getPos1X() != 0 && Game.table1.Ship3.getPos1X() != 0
-				&& Game.table1.Ship4.getPos1X() != 0 && Game.table1.Ship5.getPos1X() != 0) {
+				&& Game.table1.Ship4.getPos1X() != 0 && Game.table1.Ship5.getPos1X() != 0
+				&& Game.table1.Ship1.getPos2X() != 0 && Game.table1.Ship2.getPos3X() != 0
+				&& Game.table1.Ship3.getPos3X() != 0 && Game.table1.Ship4.getPos4X() != 0
+				&& Game.table1.Ship5.getPos5X() != 0) {
 			end = true;
 			StartSinkShips.loadScene("/ch/pg/sinkships/view/Playground");
 		}
 	}
 
 	/**
-	 * Returns to the main Controller.
+	 * Returns to the main Controller (Back to the Start Scene).
 	 * 
 	 * @param e
 	 */
@@ -65,6 +68,12 @@ public class Controllerplayer {
 		StartSinkShips.loadScene("/ch/pg/sinkships/view/Main");
 	}
 
+	/**
+	 * if The Rectangle was Licked it will Rotate for 90° or in this Case it changes
+	 * the Height and With of the Rectangle
+	 * 
+	 * @param e
+	 */
 	@FXML
 	protected void onRotate(MouseEvent e) {
 		Rectangle rec = (Rectangle) e.getSource();
@@ -129,6 +138,11 @@ public class Controllerplayer {
 		}
 	}
 
+	/**
+	 * Gets the id of the Rectangle and set the drag on true
+	 * 
+	 * @param e
+	 */
 	@FXML
 	protected void onDrag(MouseEvent e) {
 
@@ -153,6 +167,12 @@ public class Controllerplayer {
 		}
 	}
 
+	/**
+	 * if the Rectangle is dropped (mouse released) then set the Rectangle to the
+	 * position of the Mouse
+	 * 
+	 * @param e
+	 */
 	@FXML
 	protected void onDrop(MouseEvent e) {
 
@@ -179,6 +199,10 @@ public class Controllerplayer {
 		}
 	}
 
+	/**
+	 * creates the Ships and checks if the Ships has the correct Distance to each
+	 * other
+	 */
 	private void createBoats() {
 		X = gridyou.getLayoutX() + 15;
 		Y = gridyou.getLayoutY() + 15;
@@ -215,7 +239,6 @@ public class Controllerplayer {
 					sip2--;
 				} else if (X > rec3.getX() && X < rec3.getX() + rec3.getWidth() && Y > rec3.getY()
 						&& Y < rec3.getY() + rec3.getHeight()) {
-
 					if (sip3 == 3) {
 						Game.table1.Ship3.setPos1X(x);
 						Game.table1.Ship3.setPos1Y(y);
@@ -229,7 +252,6 @@ public class Controllerplayer {
 					sip3--;
 				} else if (X > rec4.getX() && X < rec4.getX() + rec4.getWidth() && Y > rec4.getY()
 						&& Y < rec4.getY() + rec4.getHeight()) {
-
 					if (sip4 == 4) {
 						Game.table1.Ship4.setPos1X(x);
 						Game.table1.Ship4.setPos1Y(y);
@@ -269,38 +291,55 @@ public class Controllerplayer {
 		}
 
 		// check if rec2, rec3, rec4, rec5 is near rec1
-		if (rec1.getX() - 15 < rec2.getX() + 15 && rec1.getX() + rec1.getWidth() + 15 > rec2.getX() - 15
-				&& rec1.getY() - 15 < rec2.getX() + 15 && rec1.getY() + rec1.getHeight() + 15 > rec2.getY() - 15
-				|| rec1.getX() - 15 < rec3.getX() + 15 && rec1.getX() + rec1.getWidth() + 15 > rec3.getX() - 15
-						&& rec1.getY() - 15 < rec3.getX() + 15 && rec1.getY() + rec1.getHeight() + 15 > rec3.getY() - 15
-				|| rec1.getX() - 15 < rec4.getX() + 15 && rec1.getX() + rec1.getWidth() + 15 > rec4.getX() - 15
-						&& rec1.getY() - 15 < rec4.getX() + 15 && rec1.getY() + rec1.getHeight() + 15 > rec4.getY() - 15
-				|| rec1.getX() - 15 < rec5.getX() + 15 && rec1.getX() + rec1.getWidth() + 15 > rec5.getX() - 15
-						&& rec1.getY() - 15 < rec5.getX() + 15
-						&& rec1.getY() + rec1.getHeight() + 15 > rec5.getY() - 15) {
+		if (rec1.getX() - 30 < rec2.getX() + 15
+				&& rec1.getX() + rec1.getWidth() + 30 > rec2.getX() + rec2.getWidth() - 15
+				&& rec1.getY() - 30 < rec2.getX() + 15
+				&& rec1.getY() + rec1.getHeight() + 30 > rec2.getY() + rec2.getHeight() - 15
+				|| rec1.getX() - 30 < rec3.getX() + 15
+						&& rec1.getX() + rec1.getWidth() + 30 > rec3.getX() + rec3.getWidth() - 15
+						&& rec1.getY() - 30 < rec3.getX() + 15
+						&& rec1.getY() + rec1.getHeight() + 30 > rec3.getY() + rec3.getHeight() - 15
+				|| rec1.getX() - 30 < rec4.getX() + 15
+						&& rec1.getX() + rec1.getWidth() + 30 > rec4.getX() + rec4.getWidth() - 15
+						&& rec1.getY() - 30 < rec4.getX() + 15
+						&& rec1.getY() + rec1.getHeight() + 30 > rec4.getY() + rec4.getHeight() - 15
+				|| rec1.getX() - 30 < rec5.getX() + 15
+						&& rec1.getX() + rec1.getWidth() + 30 > rec5.getX() + rec5.getWidth() - 15
+						&& rec1.getY() - 30 < rec5.getX() + 15
+						&& rec1.getY() + rec1.getHeight() + 30 > rec5.getY() + rec5.getHeight() - 15) {
 			Game.table1.Ship1.setPos1X(0);
 		}
 		// check if rec3, rec4, rec5 is near rec2
-		if (rec2.getX() - 15 < rec3.getX() + 15 && rec2.getX() + rec2.getWidth() + 15 > rec3.getX() - 15
-				&& rec2.getY() - 15 < rec3.getX() + 15 && rec2.getY() + rec2.getHeight() + 15 > rec3.getY() - 15
-				|| rec2.getX() - 15 < rec4.getX() + 15 && rec2.getX() + rec2.getWidth() + 15 > rec4.getX() - 15
-						&& rec2.getY() - 15 < rec4.getX() + 15 && rec2.getY() + rec2.getHeight() + 15 > rec4.getY() - 15
-				|| rec2.getX() - 15 < rec5.getX() + 15 && rec2.getX() + rec2.getWidth() + 15 > rec5.getX() - 15
-						&& rec2.getY() - 15 < rec5.getX() + 15
-						&& rec2.getY() + rec2.getHeight() + 15 > rec5.getY() - 15) {
+		if (rec2.getX() - 30 < rec3.getX() + 15
+				&& rec2.getX() + rec2.getWidth() + 30 > rec3.getX() + rec3.getWidth() - 15
+				&& rec2.getY() - 30 < rec3.getX() + 15
+				&& rec2.getY() + rec2.getHeight() + 30 > rec3.getY() + rec3.getHeight() - 15
+				|| rec2.getX() - 30 < rec4.getX() + 15
+						&& rec2.getX() + rec2.getWidth() + 30 > rec4.getX() + rec4.getWidth() - 15
+						&& rec2.getY() - 30 < rec4.getX() + 15
+						&& rec2.getY() + rec2.getHeight() + 30 > rec4.getY() + rec4.getHeight() - 15
+				|| rec2.getX() - 30 < rec5.getX() + 15
+						&& rec2.getX() + rec2.getWidth() + 30 > rec5.getX() + rec5.getWidth() - 15
+						&& rec2.getY() - 30 < rec5.getX() + 15
+						&& rec2.getY() + rec2.getHeight() + 30 > rec5.getY() + rec5.getHeight() - 15) {
 			Game.table1.Ship1.setPos1X(0);
 		}
 		// check if rec4, rec5 is near rec3
-		if (rec3.getX() - 15 < rec4.getX() + 15 && rec3.getX() + rec3.getWidth() + 15 > rec4.getX() - 15
-				&& rec3.getY() - 15 < rec4.getX() + 15 && rec3.getY() + rec3.getHeight() + 15 > rec4.getY() - 15
-				|| rec3.getX() - 15 < rec5.getX() + 15 && rec3.getX() + rec3.getWidth() + 15 > rec5.getX() - 15
-						&& rec3.getY() - 15 < rec5.getX() + 15
-						&& rec3.getY() + rec3.getHeight() + 15 > rec5.getY() - 15) {
+		if (rec3.getX() - 30 < rec4.getX() + 15
+				&& rec3.getX() + rec3.getWidth() + 30 > rec4.getX() + rec4.getWidth() - 15
+				&& rec3.getY() - 30 < rec4.getX() + 15
+				&& rec3.getY() + rec3.getHeight() + 30 > rec4.getY() + rec4.getHeight() - 15
+				|| rec3.getX() - 30 < rec5.getX() + 15
+						&& rec3.getX() + rec3.getWidth() + 30 > rec5.getX() + rec5.getWidth() - 15
+						&& rec3.getY() - 30 < rec5.getX() + 15
+						&& rec3.getY() + rec3.getHeight() + 30 > rec5.getY() + rec5.getHeight() - 15) {
 			Game.table1.Ship1.setPos1X(0);
 		}
 		// check if rec5 is near rec4
-		if (rec4.getX() - 15 < rec5.getX() + 15 && rec4.getX() + rec4.getWidth() + 15 > rec5.getX() - 15
-				&& rec4.getY() - 15 < rec5.getX() + 15 && rec4.getY() + rec4.getHeight() + 15 > rec5.getY() - 15) {
+		if (rec4.getX() - 30 < rec5.getX() + 15
+				&& rec4.getX() + rec4.getWidth() + 30 > rec5.getX() + rec5.getWidth() - 15
+				&& rec4.getY() - 30 < rec5.getX() + 15
+				&& rec4.getY() + rec4.getHeight() + 30 > rec5.getY() + rec2.getHeight() - 15) {
 			Game.table1.Ship1.setPos1X(0);
 		}
 	}

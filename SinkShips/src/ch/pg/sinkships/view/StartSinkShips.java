@@ -14,7 +14,7 @@ import javafx.stage.Stage;
 /**
  * The first Class.
  * 
- * @author Patrick
+ * @author PatrickG07
  */
 public class StartSinkShips extends Application {
 
@@ -25,7 +25,7 @@ public class StartSinkShips extends Application {
 	}
 
 	/**
-	 * Starts the programm hier.
+	 * Starts the program.
 	 */
 	@Override
 	public void start(Stage primaryStage) throws Exception {

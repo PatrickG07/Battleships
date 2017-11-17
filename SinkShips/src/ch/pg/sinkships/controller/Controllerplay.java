@@ -11,6 +11,11 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 
+/**
+ * The Class for The hole Game
+ * 
+ * @author PatrickG07
+ */
 public class Controllerplay {
 
 	static int X, Y;
@@ -32,7 +37,60 @@ public class Controllerplay {
 	private Image picture;
 
 	/**
-	 * get klicked Item
+	 * For displaying all Ships on the Left Grid.
+	 */
+	@FXML
+	public void initialize() {
+
+		for (int x = 1; x < 11; x++) {
+			for (int y = 1; y < 11; y++) {
+
+				X = x;
+				Y = y;
+				getNodeFromGridPane();
+
+				Game.table1.checkforhit(x, y);
+				if (Game.table1.isCheckforhit() == true) {
+					picture = new Image("/ch/pg/sinkships/sources/ship.jpg");
+
+					ImageView you = (ImageView) Text;
+
+					you.setImage(picture);
+
+					Game.table1.setCheckforhit(false);
+					Game.table2.setCheckforhit(false);
+				}
+			}
+		}
+
+		Game.table1.Ship1.setDestroyd(false);
+		Game.table1.Ship2.setDestroyd(false);
+		Game.table1.Ship3.setDestroyd(false);
+		Game.table1.Ship4.setDestroyd(false);
+		Game.table1.Ship5.setDestroyd(false);
+
+		Game.table2.Ship1.setDestroyd(false);
+		Game.table2.Ship2.setDestroyd(false);
+		Game.table2.Ship3.setDestroyd(false);
+		Game.table2.Ship4.setDestroyd(false);
+		Game.table2.Ship5.setDestroyd(false);
+
+		Game.table1.Ship1.setHealth(2);
+		Game.table1.Ship2.setHealth(3);
+		Game.table1.Ship3.setHealth(3);
+		Game.table1.Ship4.setHealth(4);
+		Game.table1.Ship5.setHealth(5);
+
+		Game.table2.Ship1.setHealth(2);
+		Game.table2.Ship2.setHealth(3);
+		Game.table2.Ship3.setHealth(3);
+		Game.table2.Ship4.setHealth(4);
+		Game.table2.Ship5.setHealth(5);
+	}
+
+	/**
+	 * get kicked Item id and checks if one Ship is on this Tile and sets the
+	 * correct Image to the ImageView
 	 * 
 	 * @param e
 	 */
@@ -46,7 +104,7 @@ public class Controllerplay {
 			X = griden.getRowIndex(hit);
 			Y = griden.getColumnIndex(hit);
 			if (Game.getActualTable() == "table1") {
-				Game.table2.checkforhit(X, Y);
+				Game.table1.checkforhit(X, Y);
 			} else if (Game.getActualTable() == "table2") {
 				Game.table1.checkforhit(X, Y);
 			}
@@ -58,19 +116,29 @@ public class Controllerplay {
 			hit.setImage(picture);
 			Game.table1.setCheckforhit(false);
 			Game.table2.setCheckforhit(false);
-			
-			if(Game.table2.Ship1.getDestroyd() == true && Game.table2.Ship2.getDestroyd() == true && Game.table2.Ship3.getDestroyd() == true && Game.table2.Ship4.getDestroyd() == true && Game.table2.Ship5.getDestroyd() == true) {
+
+			System.out.println("New   ");
+			System.out.println(Game.table1.Ship1.getHealth());
+			System.out.println(Game.table1.Ship2.getHealth());
+			System.out.println(Game.table1.Ship3.getHealth());
+			System.out.println(Game.table1.Ship4.getHealth());
+			System.out.println(Game.table1.Ship5.getHealth());
+
+			if (Game.table2.Ship1.getDestroyd() == true && Game.table2.Ship2.getDestroyd() == true
+					&& Game.table2.Ship3.getDestroyd() == true && Game.table2.Ship4.getDestroyd() == true
+					&& Game.table2.Ship5.getDestroyd() == true) {
 				End();
 			}
-			
-//			Game.setAtualTable("table1");
-			
+
+			// Game.setAtualTable("table1");
+
+			// delete this for Server
 			owntable();
 		}
 	}
 
 	/**
-	 * for getting the Node(source) of the ImageView at the location (Row and
+	 * for getting the Node(source for ID) of the ImageView at the location (Row and
 	 * Column)
 	 */
 	private void getNodeFromGridPane() {
@@ -84,44 +152,56 @@ public class Controllerplay {
 	}
 
 	/**
-	 * for Later on with the Server
+	 * for Later on with the Server The Grid of Player, The Ships are displayed.
 	 */
 	private void owntable() {
 		getNodeFromGridPane();
 
 		if (Game.getActualTable() == "table1") {
-			Game.table2.checkforhit(X, Y);
+			Game.table1.checkforhit(X, Y);
 		} else if (Game.getActualTable() == "table2") {
 			Game.table1.checkforhit(X, Y);
 		}
-		if (Game.table1.isCheckforhit() == true
-				|| Game.table2.isCheckforhit() == true) {
+		if (Game.table1.isCheckforhit() == true || Game.table2.isCheckforhit() == true) {
 			picture = new Image("/ch/pg/sinkships/sources/hit.jpg");
 		} else {
 			picture = new Image("/ch/pg/sinkships/sources/dot.jpg");
 		}
 		ImageView you = (ImageView) Text;
-		
+
 		Game.table1.setCheckforhit(false);
 		Game.table2.setCheckforhit(false);
 
 		you.setImage(picture);
-		
-		if(Game.table1.Ship1.getDestroyd() == true && Game.table1.Ship2.getDestroyd() == true && Game.table1.Ship3.getDestroyd() == true && Game.table1.Ship4.getDestroyd() == true && Game.table1.Ship5.getDestroyd() == true) {
+
+		System.out.println(Game.table1.Ship1.getHealth());
+		System.out.println(Game.table1.Ship2.getHealth());
+		System.out.println(Game.table1.Ship3.getHealth());
+		System.out.println(Game.table1.Ship4.getHealth());
+		System.out.println(Game.table1.Ship5.getHealth());
+
+		if (Game.table1.Ship1.getDestroyd() == true && Game.table1.Ship2.getDestroyd() == true
+				&& Game.table1.Ship3.getDestroyd() == true && Game.table1.Ship4.getDestroyd() == true
+				&& Game.table1.Ship5.getDestroyd() == true) {
 			End();
 		}
-		
-//		Game.setAtualTable("table2");
+
+		// Game.setAtualTable("table2");
 	}
-	
+
+	/**
+	 * if one Player destroy all Ships it will display as an win for this Player
+	 */
 	private void End() {
 		String Text;
-		if(Game.table2.Ship1.getDestroyd() == true && Game.table2.Ship2.getDestroyd() == true && Game.table2.Ship3.getDestroyd() == true && Game.table2.Ship4.getDestroyd() == true && Game.table2.Ship5.getDestroyd() == true) {
+		if (Game.table2.Ship1.getDestroyd() == true && Game.table2.Ship2.getDestroyd() == true
+				&& Game.table2.Ship3.getDestroyd() == true && Game.table2.Ship4.getDestroyd() == true
+				&& Game.table2.Ship5.getDestroyd() == true) {
 			Text = "Player 2 Wonn";
-		}else {
+		} else {
 			Text = "You Wonn";
 		}
-		
+
 		Alert alert = new Alert(AlertType.INFORMATION);
 		alert.setTitle("Winner!");
 		alert.setHeaderText(Text);

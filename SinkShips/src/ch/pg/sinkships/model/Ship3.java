@@ -1,8 +1,13 @@
 package ch.pg.sinkships.model;
 
+/**
+ * The Class Where the 3 Tile long Ship is created.
+ * 
+ * @author PatrickG07
+ */
 public class Ship3 {
 
-	Boolean destroyd;
+	Boolean destroyd = false;
 	Boolean Horizontal = true;
 
 	int pos1X, pos2X, pos3X;

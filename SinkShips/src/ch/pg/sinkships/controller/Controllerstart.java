@@ -7,12 +7,12 @@ import javafx.fxml.FXML;
 /**
  * The start controller class.
  * 
- * @author Patrick
+ * @author PatrickG07
  */
 public class Controllerstart {
 
 	/**
-	 * Changes the stage to the Player name setter controller class.
+	 * Changes the stage to the Ships setter controller class.
 	 * 
 	 * @param e
 	 */
