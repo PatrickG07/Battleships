@@ -9,6 +9,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Text;
 import javafx.util.Duration;
 
 /**
@@ -29,6 +30,9 @@ public class Controllerplayer {
 
 	@FXML
 	protected GridPane griden, gridyou;
+	
+	@FXML
+	protected Text errortext;
 
 	@FXML
 	protected ImageView box1, box2, box3, box4, box5, box6, box7, box8, box9, box10, box11, box12, box13, box14, box15,
@@ -54,6 +58,8 @@ public class Controllerplayer {
 				&& Game.table1.Ship5.getPos5X() != 0) {
 			end = true;
 			StartSinkShips.loadScene("/ch/pg/sinkships/view/Playground");
+		}else {
+			errortext.setText("Ships are not placed");
 		}
 	}
 

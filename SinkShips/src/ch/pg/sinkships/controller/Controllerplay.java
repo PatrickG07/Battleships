@@ -92,6 +92,8 @@ public class Controllerplay {
 	 * get kicked Item id and checks if one Ship is on this Tile and sets the
 	 * correct Image to the ImageView
 	 * 
+	 * it has to be change later with the Server from table1 to table2
+	 * 
 	 * @param e
 	 */
 	@SuppressWarnings("static-access")
