@@ -1,4 +1,6 @@
 # Battleships
 The Game Battleships
 
-It is in a Early development phase
+The basics for one player is nearly finish
+
+The Server for local Gaming has not started jet

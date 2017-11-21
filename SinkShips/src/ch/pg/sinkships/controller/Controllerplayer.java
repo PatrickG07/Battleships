@@ -4,6 +4,7 @@ import ch.pg.sinkships.model.Game;
 import ch.pg.sinkships.view.StartSinkShips;
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -18,19 +19,23 @@ import javafx.util.Duration;
  * @author PatrickG07
  */
 public class Controllerplayer {
+
 	private static final Duration TRANSLATE_DURATION = Duration.millis(1);
-	final TranslateTransition transition = new TranslateTransition(TRANSLATE_DURATION);
 
-	boolean end = false, drag1 = false, drag2 = false, drag3 = false, drag4 = false, drag5 = false;
+	boolean again = true, end = false, drag1 = false, drag2 = false, drag3 = false, drag4 = false, drag5 = false;
 
-	double X, Y;
+	double X, Y, L = 0;
+
+	int x, y;
+
+	MouseEvent event;
 
 	@FXML
 	protected Rectangle rec1, rec2, rec3, rec4, rec5;
 
 	@FXML
 	protected GridPane griden, gridyou;
-	
+
 	@FXML
 	protected Text errortext;
 
@@ -44,7 +49,40 @@ public class Controllerplayer {
 			box91, box92, box93, box94, box95, box96, box97, box98, box99, box100;
 
 	/**
-	 * If the ships are correctly placed it goes to the next scene 
+	 * 
+	 */
+	@FXML
+	public void initialize() {
+		System.out.println("test0");
+	}
+
+	private TranslateTransition createTranslateTransition() {
+		final TranslateTransition transition = new TranslateTransition(TRANSLATE_DURATION);
+		transition.setOnFinished(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent t) {
+
+				L++;
+				errortext.setText("" + L);
+				Dragging();
+
+				moveCircleOnSpacePress(transition);
+			}
+		});
+		return transition;
+	}
+
+	private void moveCircleOnSpacePress(final TranslateTransition transition) {
+		if (end == false) {
+//			transition.playFromStart();
+		} else {
+			errortext.setText("testtttasdfhsdalkfhjasdlf");
+			transition.stop();
+		}
+	}
+
+	/**
+	 * If the ships are correctly placed it goes to the next scene
 	 * 
 	 * @param e
 	 */
@@ -58,7 +96,7 @@ public class Controllerplayer {
 				&& Game.table1.Ship5.getPos5X() != 0) {
 			end = true;
 			StartSinkShips.loadScene("/ch/pg/sinkships/view/Playground");
-		}else {
+		} else {
 			errortext.setText("Ships are not placed");
 		}
 	}
@@ -151,7 +189,7 @@ public class Controllerplayer {
 	 */
 	@FXML
 	protected void onDrag(MouseEvent e) {
-
+		event = e;
 		Rectangle rec = (Rectangle) e.getSource();
 		switch (rec.getId()) {
 		// speed up the ball / circle after X bounces by the Rectangulars
@@ -171,6 +209,12 @@ public class Controllerplayer {
 			drag5 = true;
 			break;
 		}
+		if (again = true) {
+			final TranslateTransition transition = createTranslateTransition();
+			// createTranslateTransition();
+			moveCircleOnSpacePress(transition);
+			again = false;
+		}
 	}
 
 	/**
@@ -181,27 +225,34 @@ public class Controllerplayer {
 	 */
 	@FXML
 	protected void onDrop(MouseEvent e) {
+		event = e;
+		Dragging();
+		drag1 = false;
+		drag2 = false;
+		drag3 = false;
+		drag4 = false;
+		drag5 = false;
+	}
 
+	/**
+	 * 
+	 */
+	private void Dragging() {
 		if (drag1 == true) {
-			drag1 = false;
-			rec1.setX(e.getSceneX());
-			rec1.setY(e.getSceneY());
+			rec1.setX(event.getSceneX());
+			rec1.setY(event.getSceneY());
 		} else if (drag2 == true) {
-			drag2 = false;
-			rec2.setX(e.getSceneX());
-			rec2.setY(e.getSceneY());
+			rec2.setX(event.getSceneX());
+			rec2.setY(event.getSceneY());
 		} else if (drag3 == true) {
-			drag3 = false;
-			rec3.setX(e.getSceneX());
-			rec3.setY(e.getSceneY());
+			rec3.setX(event.getSceneX());
+			rec3.setY(event.getSceneY());
 		} else if (drag4 == true) {
-			drag4 = false;
-			rec4.setX(e.getSceneX());
-			rec4.setY(e.getSceneY());
+			rec4.setX(event.getSceneX());
+			rec4.setY(event.getSceneY());
 		} else if (drag5 == true) {
-			drag5 = false;
-			rec5.setX(e.getSceneX());
-			rec5.setY(e.getSceneY());
+			rec5.setX(event.getSceneX());
+			rec5.setY(event.getSceneY());
 		}
 	}
 
