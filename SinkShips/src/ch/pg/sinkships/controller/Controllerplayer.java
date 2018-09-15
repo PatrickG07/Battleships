@@ -1,5 +1,8 @@
 package ch.pg.sinkships.controller;
 
+import java.awt.MouseInfo;
+import java.awt.Point;
+
 import ch.pg.sinkships.model.Game;
 import ch.pg.sinkships.view.StartSinkShips;
 import javafx.animation.TranslateTransition;
@@ -49,34 +52,31 @@ public class Controllerplayer {
 			box91, box92, box93, box94, box95, box96, box97, box98, box99, box100;
 
 	/**
+	 * Translate for dragging the Rectangle with the mouse at the same time.
 	 * 
+	 * @return
 	 */
-	@FXML
-	public void initialize() {
-		System.out.println("test0");
-	}
-
 	private TranslateTransition createTranslateTransition() {
-		final TranslateTransition transition = new TranslateTransition(TRANSLATE_DURATION);
+		final TranslateTransition transition = new TranslateTransition(TRANSLATE_DURATION, rec1);
 		transition.setOnFinished(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent t) {
-
-				L++;
-				errortext.setText("" + L);
 				Dragging();
-
-				moveCircleOnSpacePress(transition);
+				moveRectangle(transition);
 			}
 		});
 		return transition;
 	}
 
-	private void moveCircleOnSpacePress(final TranslateTransition transition) {
+	/**
+	 * Repeat the Transition. for dragging the Rectangles.
+	 * 
+	 * @param transition
+	 */
+	private void moveRectangle(final TranslateTransition transition) {
 		if (end == false) {
-//			transition.playFromStart();
+			transition.playFromStart();
 		} else {
-			errortext.setText("testtttasdfhsdalkfhjasdlf");
 			transition.stop();
 		}
 	}
@@ -97,7 +97,8 @@ public class Controllerplayer {
 			end = true;
 			StartSinkShips.loadScene("/ch/pg/sinkships/view/Playground");
 		} else {
-			errortext.setText("Ships are not placed");
+			errortext.setText("Ships are not placed Correctly,"
+					+ " Ships must have placed on the grid and with a 1 tile space between them");
 		}
 	}
 
@@ -212,7 +213,7 @@ public class Controllerplayer {
 		if (again = true) {
 			final TranslateTransition transition = createTranslateTransition();
 			// createTranslateTransition();
-			moveCircleOnSpacePress(transition);
+			moveRectangle(transition);
 			again = false;
 		}
 	}
@@ -235,24 +236,25 @@ public class Controllerplayer {
 	}
 
 	/**
-	 * 
+	 * Dragging the Rectangle with the Mouse.
 	 */
 	private void Dragging() {
+		Point p = MouseInfo.getPointerInfo().getLocation();
 		if (drag1 == true) {
-			rec1.setX(event.getSceneX());
-			rec1.setY(event.getSceneY());
+			rec1.setX(p.x - 570);
+			rec1.setY(p.y - 170);
 		} else if (drag2 == true) {
-			rec2.setX(event.getSceneX());
-			rec2.setY(event.getSceneY());
+			rec2.setX(p.x - 570);
+			rec2.setY(p.y - 170);
 		} else if (drag3 == true) {
-			rec3.setX(event.getSceneX());
-			rec3.setY(event.getSceneY());
+			rec3.setX(p.x - 570);
+			rec3.setY(p.y - 170);
 		} else if (drag4 == true) {
-			rec4.setX(event.getSceneX());
-			rec4.setY(event.getSceneY());
+			rec4.setX(p.x - 570);
+			rec4.setY(p.y - 170);
 		} else if (drag5 == true) {
-			rec5.setX(event.getSceneX());
-			rec5.setY(event.getSceneY());
+			rec5.setX(p.x - 570);
+			rec5.setY(p.y - 170);
 		}
 	}
 
