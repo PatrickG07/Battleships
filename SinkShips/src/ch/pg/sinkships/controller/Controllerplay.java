@@ -1,5 +1,6 @@
 package ch.pg.sinkships.controller;
 
+import ch.pg.chat.Sender;
 import ch.pg.sinkships.model.Game;
 import ch.pg.sinkships.view.StartSinkShips;
 import javafx.fxml.FXML;
@@ -18,7 +19,9 @@ import javafx.scene.layout.GridPane;
  */
 public class Controllerplay {
 
-	static int X, Y;
+	public int X, Y;
+	
+	Sender send = new Sender();
 
 	@FXML
 	protected GridPane griden, gridyou;
@@ -37,25 +40,23 @@ public class Controllerplay {
 	private Image picture;
 
 	/**
-	 * For displaying all Ships on the Left Grid.
+	 * For reseting the Ships health and destroyd. Showing your Ships on the left
+	 * side.
 	 */
 	@FXML
 	public void initialize() {
+		
+		send.initialize();
 		for (int x = 1; x < 11; x++) {
 			for (int y = 1; y < 11; y++) {
-
 				X = x;
 				Y = y;
 				getNodeFromGridPane();
-
 				Game.table1.checkforhit(x, y);
 				if (Game.table1.isCheckforhit() == true) {
 					picture = new Image("/ch/pg/sinkships/sources/ship.jpg");
-
 					ImageView you = (ImageView) Text;
-
 					you.setImage(picture);
-
 					Game.table1.setCheckforhit(false);
 					Game.table2.setCheckforhit(false);
 				}
@@ -98,12 +99,16 @@ public class Controllerplay {
 	@SuppressWarnings("static-access")
 	@FXML
 	protected void Hit(MouseEvent e) {
+
 		ImageView hit = (ImageView) e.getSource();
+
 		if (hit.isDisable() == false) {
 			hit.setOpacity(0.90);
 			hit.setDisable(true);
+
 			X = griden.getRowIndex(hit);
 			Y = griden.getColumnIndex(hit);
+
 			if (Game.getActualTable() == "table1") {
 				Game.table1.checkforhit(X, Y);
 			} else if (Game.getActualTable() == "table2") {
@@ -114,25 +119,22 @@ public class Controllerplay {
 			} else {
 				picture = new Image("/ch/pg/sinkships/sources/dot.jpg");
 			}
+
 			hit.setImage(picture);
+
 			Game.table1.setCheckforhit(false);
 			Game.table2.setCheckforhit(false);
-
-			System.out.println("New   ");
-			System.out.println(Game.table1.Ship1.getHealth());
-			System.out.println(Game.table1.Ship2.getHealth());
-			System.out.println(Game.table1.Ship3.getHealth());
-			System.out.println(Game.table1.Ship4.getHealth());
-			System.out.println(Game.table1.Ship5.getHealth());
 
 			if (Game.table2.Ship1.getDestroyd() == true && Game.table2.Ship2.getDestroyd() == true
 					&& Game.table2.Ship3.getDestroyd() == true && Game.table2.Ship4.getDestroyd() == true
 					&& Game.table2.Ship5.getDestroyd() == true) {
 				End();
 			}
-
+			// if server is on uncomment this
 			// Game.setAtualTable("table1");
 
+			//send.sendMessageToServer(X, Y);
+			
 			// delete this for Server
 			owntable();
 		}
@@ -156,6 +158,7 @@ public class Controllerplay {
 	 * for Later on with the Server The Grid of Player, The Ships are displayed.
 	 */
 	private void owntable() {
+
 		getNodeFromGridPane();
 
 		if (Game.getActualTable() == "table1") {
@@ -168,18 +171,21 @@ public class Controllerplay {
 		} else {
 			picture = new Image("/ch/pg/sinkships/sources/dot.jpg");
 		}
+
 		ImageView you = (ImageView) Text;
 
 		Game.table1.setCheckforhit(false);
 		Game.table2.setCheckforhit(false);
 
 		you.setImage(picture);
+		
+		send.sendMessageToServer(X,Y);
 
-		System.out.println(Game.table1.Ship1.getHealth());
-		System.out.println(Game.table1.Ship2.getHealth());
-		System.out.println(Game.table1.Ship3.getHealth());
-		System.out.println(Game.table1.Ship4.getHealth());
-		System.out.println(Game.table1.Ship5.getHealth());
+//		System.out.println(Game.table1.Ship1.getHealth());
+//		System.out.println(Game.table1.Ship2.getHealth());
+//		System.out.println(Game.table1.Ship3.getHealth());
+//		System.out.println(Game.table1.Ship4.getHealth());
+//		System.out.println(Game.table1.Ship5.getHealth());
 
 		if (Game.table1.Ship1.getDestroyd() == true && Game.table1.Ship2.getDestroyd() == true
 				&& Game.table1.Ship3.getDestroyd() == true && Game.table1.Ship4.getDestroyd() == true
@@ -194,7 +200,9 @@ public class Controllerplay {
 	 * if one Player destroy all Ships it will display as an win for this Player
 	 */
 	private void End() {
+
 		String Text;
+
 		if (Game.table2.Ship1.getDestroyd() == true && Game.table2.Ship2.getDestroyd() == true
 				&& Game.table2.Ship3.getDestroyd() == true && Game.table2.Ship4.getDestroyd() == true
 				&& Game.table2.Ship5.getDestroyd() == true) {
@@ -204,11 +212,12 @@ public class Controllerplay {
 		}
 
 		Alert alert = new Alert(AlertType.INFORMATION);
+
 		alert.setTitle("Winner!");
 		alert.setHeaderText(Text);
-
 		alert.showAndWait();
 
 		StartSinkShips.loadScene("/ch/pg/sinkships/view/Main");
 	}
+	
 }

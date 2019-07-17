@@ -97,8 +97,7 @@ public class Controllerplayer {
 			end = true;
 			StartSinkShips.loadScene("/ch/pg/sinkships/view/Playground");
 		} else {
-			errortext.setText("Ships are not placed Correctly,"
-					+ " Ships must have placed on the grid and with a 1 tile space between them");
+			errortext.setText("Ships are not placed");
 		}
 	}
 
@@ -241,20 +240,20 @@ public class Controllerplayer {
 	private void Dragging() {
 		Point p = MouseInfo.getPointerInfo().getLocation();
 		if (drag1 == true) {
-			rec1.setX(p.x - 570);
-			rec1.setY(p.y - 170);
+			rec1.setX(p.x - 770);
+			rec1.setY(p.y - 250);
 		} else if (drag2 == true) {
-			rec2.setX(p.x - 570);
-			rec2.setY(p.y - 170);
+			rec2.setX(p.x - 770);
+			rec2.setY(p.y - 250);
 		} else if (drag3 == true) {
-			rec3.setX(p.x - 570);
-			rec3.setY(p.y - 170);
+			rec3.setX(p.x - 770);
+			rec3.setY(p.y - 250);
 		} else if (drag4 == true) {
-			rec4.setX(p.x - 570);
-			rec4.setY(p.y - 170);
+			rec4.setX(p.x - 770);
+			rec4.setY(p.y - 250);
 		} else if (drag5 == true) {
-			rec5.setX(p.x - 570);
-			rec5.setY(p.y - 170);
+			rec5.setX(p.x - 770);
+			rec5.setY(p.y - 250);
 		}
 	}
 
