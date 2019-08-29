@@ -1,6 +1,7 @@
 package ch.pg.sinkships.controller;
 
-import ch.pg.chat.Sender;
+import ch.pg.sinkships.controller.client.Client;
+import ch.pg.sinkships.controller.server.Server;
 import ch.pg.sinkships.model.Game;
 import ch.pg.sinkships.view.StartSinkShips;
 import javafx.fxml.FXML;
@@ -19,9 +20,9 @@ import javafx.scene.layout.GridPane;
  */
 public class Controllerplay {
 
-	public int X, Y;
-	
-	Sender send = new Sender();
+	public static int X, Y;
+
+	private static boolean server;
 
 	@FXML
 	protected GridPane griden, gridyou;
@@ -35,57 +36,55 @@ public class Controllerplay {
 			box76, box77, box78, box79, box80, box81, box82, box83, box84, box85, box86, box87, box88, box89, box90,
 			box91, box92, box93, box94, box95, box96, box97, box98, box99, box100;
 
-	Node Text;
+	Node nodes;
 
-	private Image picture;
+	private static Image picture;
 
 	/**
-	 * For reseting the Ships health and destroyd. Showing your Ships on the left
-	 * side.
+	 * For reseting the Ships health. Showing your Ships on the left side.
+	 * It starts The Server or Connecting to one as a Client.
 	 */
 	@FXML
 	public void initialize() {
-		
-		send.initialize();
+
+		// Starting Server or Connecting to a Server
+		if (Game.actualTable == "table1") {
+			StartServer();
+			server = true;
+		} else if (Game.actualTable == "table2") {
+			Connect();
+			griden.setDisable(true);
+			server = false;
+		}
+
+		// show where the ships are
 		for (int x = 1; x < 11; x++) {
 			for (int y = 1; y < 11; y++) {
 				X = x;
 				Y = y;
-				getNodeFromGridPane();
+				getNodeFromGridPaneYou();
 				Game.table1.checkforhit(x, y);
 				if (Game.table1.isCheckforhit() == true) {
 					picture = new Image("/ch/pg/sinkships/sources/ship.jpg");
-					ImageView you = (ImageView) Text;
+					ImageView you = (ImageView) nodes;
 					you.setImage(picture);
 					Game.table1.setCheckforhit(false);
-					Game.table2.setCheckforhit(false);
 				}
 			}
 		}
 
+		// Reseting the health
 		Game.table1.Ship1.setDestroyd(false);
 		Game.table1.Ship2.setDestroyd(false);
 		Game.table1.Ship3.setDestroyd(false);
 		Game.table1.Ship4.setDestroyd(false);
 		Game.table1.Ship5.setDestroyd(false);
 
-		Game.table2.Ship1.setDestroyd(false);
-		Game.table2.Ship2.setDestroyd(false);
-		Game.table2.Ship3.setDestroyd(false);
-		Game.table2.Ship4.setDestroyd(false);
-		Game.table2.Ship5.setDestroyd(false);
-
 		Game.table1.Ship1.setHealth(2);
 		Game.table1.Ship2.setHealth(3);
 		Game.table1.Ship3.setHealth(3);
 		Game.table1.Ship4.setHealth(4);
 		Game.table1.Ship5.setHealth(5);
-
-		Game.table2.Ship1.setHealth(2);
-		Game.table2.Ship2.setHealth(3);
-		Game.table2.Ship3.setHealth(3);
-		Game.table2.Ship4.setHealth(4);
-		Game.table2.Ship5.setHealth(5);
 	}
 
 	/**
@@ -109,34 +108,9 @@ public class Controllerplay {
 			X = griden.getRowIndex(hit);
 			Y = griden.getColumnIndex(hit);
 
-			if (Game.getActualTable() == "table1") {
-				Game.table1.checkforhit(X, Y);
-			} else if (Game.getActualTable() == "table2") {
-				Game.table1.checkforhit(X, Y);
-			}
-			if (Game.table1.isCheckforhit() == true || Game.table2.isCheckforhit() == true) {
-				picture = new Image("/ch/pg/sinkships/sources/hit.jpg");
-			} else {
-				picture = new Image("/ch/pg/sinkships/sources/dot.jpg");
-			}
-
-			hit.setImage(picture);
-
-			Game.table1.setCheckforhit(false);
-			Game.table2.setCheckforhit(false);
-
-			if (Game.table2.Ship1.getDestroyd() == true && Game.table2.Ship2.getDestroyd() == true
-					&& Game.table2.Ship3.getDestroyd() == true && Game.table2.Ship4.getDestroyd() == true
-					&& Game.table2.Ship5.getDestroyd() == true) {
-				End();
-			}
-			// if server is on uncomment this
-			// Game.setAtualTable("table1");
-
-			//send.sendMessageToServer(X, Y);
+			griden.setDisable(true);
 			
-			// delete this for Server
-			owntable();
+			sendMessage(Integer.toString(X) + "-" + Integer.toString(Y));
 		}
 	}
 
@@ -144,80 +118,153 @@ public class Controllerplay {
 	 * for getting the Node(source for ID) of the ImageView at the location (Row and
 	 * Column)
 	 */
-	private void getNodeFromGridPane() {
+	private void getNodeFromGridPaneYou() {
 		for (Node node : gridyou.getChildren()) {
 			if (GridPane.getColumnIndex(node) != null && GridPane.getRowIndex(node) != null) {
 				if (GridPane.getColumnIndex(node) == Y && GridPane.getRowIndex(node) == X) {
-					Text = node;
+					nodes = node;
+				}
+			}
+		}
+	}
+	
+	private void getNodeFromGridPaneEnemy() {
+		for (Node node : griden.getChildren()) {
+			if (GridPane.getColumnIndex(node) != null && GridPane.getRowIndex(node) != null) {
+				if (GridPane.getColumnIndex(node) == Y && GridPane.getRowIndex(node) == X) {
+					nodes = node;
 				}
 			}
 		}
 	}
 
-	/**
-	 * for Later on with the Server The Grid of Player, The Ships are displayed.
-	 */
-	private void owntable() {
-
-		getNodeFromGridPane();
-
-		if (Game.getActualTable() == "table1") {
-			Game.table1.checkforhit(X, Y);
-		} else if (Game.getActualTable() == "table2") {
-			Game.table1.checkforhit(X, Y);
-		}
-		if (Game.table1.isCheckforhit() == true || Game.table2.isCheckforhit() == true) {
-			picture = new Image("/ch/pg/sinkships/sources/hit.jpg");
-		} else {
-			picture = new Image("/ch/pg/sinkships/sources/dot.jpg");
-		}
-
-		ImageView you = (ImageView) Text;
-
-		Game.table1.setCheckforhit(false);
-		Game.table2.setCheckforhit(false);
-
-		you.setImage(picture);
+	public void reciver(String order) {
 		
-		send.sendMessageToServer(X,Y);
+		String trimmed = order.trim();
 
-//		System.out.println(Game.table1.Ship1.getHealth());
-//		System.out.println(Game.table1.Ship2.getHealth());
-//		System.out.println(Game.table1.Ship3.getHealth());
-//		System.out.println(Game.table1.Ship4.getHealth());
-//		System.out.println(Game.table1.Ship5.getHealth());
+		if (trimmed.equals("hit") || trimmed.equals("miss")) /* if you hit an enemy ship */ {
+			getNodeFromGridPaneEnemy();
+			if (trimmed.equals("hit")) {
+				picture = new Image("/ch/pg/sinkships/sources/hit.jpg");
+				griden.setDisable(false);
+			} else {
+				picture = new Image("/ch/pg/sinkships/sources/dot.jpg");
+				griden.setDisable(true);
+			}
 
-		if (Game.table1.Ship1.getDestroyd() == true && Game.table1.Ship2.getDestroyd() == true
-				&& Game.table1.Ship3.getDestroyd() == true && Game.table1.Ship4.getDestroyd() == true
-				&& Game.table1.Ship5.getDestroyd() == true) {
-			End();
+			ImageView Enemy = (ImageView) nodes;
+
+			Enemy.setImage(picture);
+		} else if (trimmed.equals("won")) /* if you won / destroyed all enemy ships */ {
+			
 		}
+		else /* hetting an X and Y value to chech if enemy hit */ {
+			
+			String arrStr[] = trimmed.split("-");
 
-		// Game.setAtualTable("table2");
+			X = Integer.parseInt(arrStr[0]);
+			Y = Integer.parseInt(arrStr[1]);
+
+
+			Game.table1.checkforhit(X, Y);
+			if (Game.table1.isCheckforhit() == true) {
+				picture = new Image("/ch/pg/sinkships/sources/hit.jpg");
+				sendMessage("hit");
+			} else {
+				picture = new Image("/ch/pg/sinkships/sources/dot.jpg");
+				sendMessage("miss");
+				griden.setDisable(false);
+			}
+			getNodeFromGridPaneYou();
+			ImageView you = (ImageView) nodes;
+
+			Game.table1.setCheckforhit(false);
+
+			you.setImage(picture);
+
+			if (Game.table1.Ship1.getDestroyd() == true && Game.table1.Ship2.getDestroyd() == true
+					&& Game.table1.Ship3.getDestroyd() == true && Game.table1.Ship4.getDestroyd() == true
+					&& Game.table1.Ship5.getDestroyd() == true) {
+				sendMessage("lost");
+
+				trimmed = "won";
+						
+				End(trimmed);
+			}
+		}
 	}
 
 	/**
+	 * Sending Messages mostly Numbers (2-2), hits, misses or won
+	 * @param order
+	 */
+	public void sendMessage(String order) {
+		if (server == true) {
+			try {
+				Server.getInstance().sendMessage(order);
+			} catch (Exception ex) {
+				System.err.println(ex.getMessage());
+			}
+		} else {
+			try {
+				Client.getInstance().sendMessage(order);
+			} catch (Exception ex) {
+				System.err.println(ex.getMessage());
+			}
+		}
+	}
+	
+	/**
+	 * Receiving Messages from the other Player
+	 * @param message
+	 */
+	public void onMessageReceived(String message) {
+		reciver(message);
+	}
+
+	/**
+	 * Starting Server
+	 */
+	public void StartServer() {
+		try {
+			Server.getInstance().startServer(this);
+		} catch (Exception ex) {
+			System.err.println(ex.getMessage());
+		}
+	}
+
+	/**
+	 * Connecting as a Client to a Server
+	 */
+	public void Connect() {
+		try {
+			Client.getInstance().connectToServer(this);
+		} catch (Exception ex) {
+			System.err.println(ex.getMessage());
+		}
+	}
+	
+	/**
 	 * if one Player destroy all Ships it will display as an win for this Player
 	 */
-	private void End() {
+	private void End(String order) {
 
-		String Text;
+		String title, text;
 
-		if (Game.table2.Ship1.getDestroyd() == true && Game.table2.Ship2.getDestroyd() == true
-				&& Game.table2.Ship3.getDestroyd() == true && Game.table2.Ship4.getDestroyd() == true
-				&& Game.table2.Ship5.getDestroyd() == true) {
-			Text = "Player 2 Wonn";
+		if (order.equals("lost")){
+			title = "Lost";
+			text = "The other Player won";
 		} else {
-			Text = "You Wonn";
+			title = "Winner!";
+			text = "You Wonn";
 		}
-
+		
 		Alert alert = new Alert(AlertType.INFORMATION);
 
-		alert.setTitle("Winner!");
-		alert.setHeaderText(Text);
+		alert.setTitle(title);
+		alert.setHeaderText(text);
 		alert.showAndWait();
 
 		StartSinkShips.loadScene("/ch/pg/sinkships/view/Main");
 	}
-	
 }

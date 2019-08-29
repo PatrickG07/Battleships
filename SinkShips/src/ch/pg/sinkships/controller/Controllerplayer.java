@@ -9,6 +9,7 @@ import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
@@ -26,12 +27,17 @@ public class Controllerplayer {
 	private static final Duration TRANSLATE_DURATION = Duration.millis(1);
 
 	boolean again = true, end = false, drag1 = false, drag2 = false, drag3 = false, drag4 = false, drag5 = false;
+	
+	boolean server = false;
 
 	double X, Y, L = 0;
 
 	int x, y;
 
 	MouseEvent event;
+	
+	@FXML
+	protected Button btserver, btclient;
 
 	@FXML
 	protected Rectangle rec1, rec2, rec3, rec4, rec5;
@@ -95,8 +101,25 @@ public class Controllerplayer {
 				&& Game.table1.Ship3.getPos3X() != 0 && Game.table1.Ship4.getPos4X() != 0
 				&& Game.table1.Ship5.getPos5X() != 0) {
 			end = true;
+			
 			StartSinkShips.loadScene("/ch/pg/sinkships/view/Playground");
 		} else {
+
+				System.out.println(Game.table1.Ship1.getPos1X());
+				System.out.println(Game.table1.Ship2.getPos1X());
+				System.out.println(Game.table1.Ship3.getPos1X());
+				System.out.println(Game.table1.Ship4.getPos1X());
+				System.out.println(Game.table1.Ship5.getPos1X());
+				
+				System.out.println(Game.table1.Ship1.getPos2X());
+				System.out.println(Game.table1.Ship2.getPos3X());
+				System.out.println(Game.table1.Ship3.getPos3X());
+				System.out.println(Game.table1.Ship4.getPos4X());
+				System.out.println(Game.table1.Ship5.getPos5X());
+			
+			
+			
+			
 			errortext.setText("Ships are not placed");
 		}
 	}
@@ -110,6 +133,22 @@ public class Controllerplayer {
 	protected void Back(ActionEvent e) {
 		end = true;
 		StartSinkShips.loadScene("/ch/pg/sinkships/view/Main");
+	}
+	
+	@FXML
+	protected void Server(ActionEvent e) {
+		btserver.setStyle("-fx-background-color: #b4ccdb");
+		btclient.setStyle("-fx-background-color: #ffffff");
+		server = true;
+		Game.actualTable = "table1";
+	}
+	
+	@FXML
+	protected void Client(ActionEvent e) {
+		btserver.setStyle("-fx-background-color: #ffffff");
+		btclient.setStyle("-fx-background-color: #b4ccdb");
+		server = false;
+		Game.actualTable = "table2";
 	}
 
 	/**
