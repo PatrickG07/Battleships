@@ -37,6 +37,7 @@ public class Client {
         isr = new InputStreamReader(socketConn.getInputStream());
         osw = new OutputStreamWriter(socketConn.getOutputStream());
         System.out.println("Conneted to server");
+        sendMessage("start");
         listenForMessages();
     }
     
