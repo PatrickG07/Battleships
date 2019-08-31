@@ -41,7 +41,6 @@ public class Table {
 			}
 			if (Ship1.getHealth() == 0) {
 				Ship1.setDestroyd(true);
-				System.out.println("destroyd " + ships);
 			}
 		}
 

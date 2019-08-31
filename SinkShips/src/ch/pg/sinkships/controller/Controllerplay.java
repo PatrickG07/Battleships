@@ -272,7 +272,6 @@ public class Controllerplay {
 	 * if one Player destroy all Ships it will display as an win for that Player
 	 */
 	private void End(String order) {
-		System.out.println("End");
 
 		if (order.equals("lost")) {
 			Ttext.setText("you have lost");
