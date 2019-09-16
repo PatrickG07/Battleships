@@ -144,502 +144,502 @@
             </Text>
             <ImageView fx:id="box1" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box2" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box3" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="1">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box4" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="1">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box5" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="1">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box6" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.rowIndex="1">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box7" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.rowIndex="1">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box8" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.rowIndex="1">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box9" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="9" GridPane.rowIndex="1">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box10" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="10" GridPane.rowIndex="1">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box11" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box12" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="2">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box13" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="2">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box14" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="2">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box15" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="2">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box16" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.rowIndex="2">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box17" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.rowIndex="2">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box18" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.rowIndex="2">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box19" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="9" GridPane.rowIndex="2">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box20" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="10" GridPane.rowIndex="2">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box21" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box22" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="3">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box23" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="3">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box24" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="3">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box25" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="3">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box26" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.rowIndex="3">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box27" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.rowIndex="3">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box28" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.rowIndex="3">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box29" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="9" GridPane.rowIndex="3">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box30" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="10" GridPane.rowIndex="3">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box31" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box32" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="4">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box33" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="4">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box34" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="4">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box35" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="4">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box36" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.rowIndex="4">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box37" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.rowIndex="4">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box38" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.rowIndex="4">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box39" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="9" GridPane.rowIndex="4">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box40" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="10" GridPane.rowIndex="4">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box41" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="5">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box42" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="5">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box43" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="5">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box44" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="5">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box45" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="5">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box46" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.rowIndex="5">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box47" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.rowIndex="5">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box48" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.rowIndex="5">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box49" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="9" GridPane.rowIndex="5">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box50" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="10" GridPane.rowIndex="5">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box51" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="6">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box52" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="6">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box53" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="6">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box54" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="6">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box55" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="6">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box56" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.rowIndex="6">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box57" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.rowIndex="6">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box58" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.rowIndex="6">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box59" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="9" GridPane.rowIndex="6">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box60" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="10" GridPane.rowIndex="6">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box61" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="7">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box62" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="7">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box63" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="7">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box64" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="7">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box65" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="7">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box66" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.rowIndex="7">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box67" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.rowIndex="7">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box68" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.rowIndex="7">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box69" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="9" GridPane.rowIndex="7">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box70" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="10" GridPane.rowIndex="7">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box71" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="8">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box72" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="8">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box73" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="8">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box74" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="8">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box75" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="8">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box76" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.rowIndex="8">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box77" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.rowIndex="8">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box78" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.rowIndex="8">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box79" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="9" GridPane.rowIndex="8">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box80" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="10" GridPane.rowIndex="8">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box81" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="9">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box82" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="9">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box83" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="9">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box84" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="9">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box85" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="9">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box86" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.rowIndex="9">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box87" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.rowIndex="9">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box88" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.rowIndex="9">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box89" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="9" GridPane.rowIndex="9">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box90" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="10" GridPane.rowIndex="9">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box91" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="10">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box92" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="10">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box93" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="10">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box94" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="10">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box95" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="10">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box96" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.rowIndex="10">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box97" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.rowIndex="10">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box98" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.rowIndex="10">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box99" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="9" GridPane.rowIndex="10">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="box100" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="10" GridPane.rowIndex="10">
                <image>
-                  <Image url="@../sources/border.jpg" />
+                  <Image url="@../sources/pictures/border.jpg" />
                </image>
             </ImageView>
          </children>

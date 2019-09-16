@@ -2,6 +2,10 @@ package ch.pg.sinkships.controller;
 
 import java.util.concurrent.TimeUnit;
 
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+
 import ch.pg.sinkships.controller.client.Client;
 import ch.pg.sinkships.controller.server.Server;
 import ch.pg.sinkships.model.Game;
@@ -69,7 +73,7 @@ public class Controllerplay {
 				getNodeFromGridPaneYou();
 				Game.table1.checkforhit(x, y);
 				if (Game.table1.isCheckforhit() == true) {
-					picture = new Image("/ch/pg/sinkships/sources/ship.jpg");
+					picture = new Image("/ch/pg/sinkships/sources/pictures/ship.jpg");
 					ImageView you = (ImageView) nodes;
 					you.setImage(picture);
 					Game.table1.setCheckforhit(false);
@@ -160,10 +164,12 @@ public class Controllerplay {
 		if (trimmed.equals("hit") || trimmed.equals("miss")) {
 			getNodeFromGridPaneEnemy();
 			if (trimmed.equals("hit")) {
-				picture = new Image("/ch/pg/sinkships/sources/hit.jpg");
+				picture = new Image("/ch/pg/sinkships/sources/pictures/hit.jpg");
+				Sound("/ch/pg/sinkships/sources/sounds/Explosion.wav");
 				griden.setDisable(false);
 			} else {
-				picture = new Image("/ch/pg/sinkships/sources/dot.jpg");
+				picture = new Image("/ch/pg/sinkships/sources/pictures/dot.jpg");
+				Sound("/ch/pg/sinkships/sources/sounds/Splash.wav");
 				griden.setDisable(true);
 				Ttext.setText("opponent turn");
 			}
@@ -189,10 +195,12 @@ public class Controllerplay {
 			Game.table1.checkforhit(X, Y);
 
 			if (Game.table1.isCheckforhit() == true) {
-				picture = new Image("/ch/pg/sinkships/sources/hit.jpg");
+				picture = new Image("/ch/pg/sinkships/sources/pictures/hit.jpg");
+				Sound("/ch/pg/sinkships/sources/sounds/Explosion.wav");
 				sendMessage("hit");
 			} else {
-				picture = new Image("/ch/pg/sinkships/sources/dot.jpg");
+				picture = new Image("/ch/pg/sinkships/sources/pictures/dot.jpg");
+				Sound("/ch/pg/sinkships/sources/sounds/Splash.wav");
 				sendMessage("miss");
 				griden.setDisable(false);
 				Ttext.setText("your turn");
@@ -267,9 +275,27 @@ public class Controllerplay {
 			System.err.println(ex.getMessage());
 		}
 	}
+	
+	/**
+	 * Plays the sound of Hit or Miss
+	 * 
+	 * @param url
+	 */
+	private static void Sound(String url) {
+		 try {
+			 Clip clip = AudioSystem.getClip();
+			 AudioInputStream inputStream = AudioSystem.getAudioInputStream(Controllerplay.class.getResourceAsStream(url));
+			 clip.open(inputStream);
+			 clip.start(); 
+		 } catch (Exception e) {
+			 System.err.println(e.getMessage());
+		 }
+	}
 
 	/**
 	 * if one Player destroy all Ships it will display as an win for that Player
+	 * 
+	 * @param order
 	 */
 	private void End(String order) {
 
