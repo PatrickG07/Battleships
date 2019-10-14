@@ -36,8 +36,9 @@ public class StartSinkShips extends Application {
 		primaryStage.setTitle("Sinkships");
 		primaryStage.centerOnScreen();
 		primaryStage.setScene(scene);
+		primaryStage.setResizable(false);
 		primaryStage.show();
-
+		
 		mainStage = primaryStage;
 	}
 
@@ -57,5 +58,20 @@ public class StartSinkShips extends Application {
 		}
 		Scene sceneToLoad = new Scene(parentToLoad);
 		mainStage.setScene(sceneToLoad);
+	}
+	
+	public static double getPosX() {
+		double posX = 0;
+		
+		posX = mainStage.getX();
+		
+		return posX;
+	}
+	public static double getPosY() {
+		double posY = 0;
+		
+		posY = mainStage.getY();
+		
+		return posY;
 	}
 }

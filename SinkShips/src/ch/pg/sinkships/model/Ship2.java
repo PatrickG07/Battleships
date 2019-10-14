@@ -70,5 +70,15 @@ public class Ship2 {
 	public void setHealth(int health) {
 		Health = health;
 	}
-
+	public int getPos(int i) {
+		if(i == 1) {
+			System.out.println(i + ":" + getPos1X() + "+" + getPos1Y());
+			return getPos1X() * 10 + getPos1Y();
+		}else if(i == 2){
+			System.out.println(i + ":" + getPos2X() + "+" + getPos2Y());
+			return getPos2X() * 10 + getPos2Y();
+		}else {
+			return 2000;
+		}
+	}
 }

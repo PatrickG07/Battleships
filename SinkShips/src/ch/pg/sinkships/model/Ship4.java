@@ -102,5 +102,18 @@ public class Ship4 {
 	public void setHealth(int health) {
 		Health = health;
 	}
+	public int getPos(int i) {
+		if(i == 1) {
+			return getPos1X() * 10 + getPos1Y();
+		}else if(i == 2){
+			return getPos2X() * 10 + getPos2Y();
+		}else if(i == 3){
+			return getPos3X() * 10 + getPos3Y();
+		}else if(i == 4){
+			return getPos4X() * 10 + getPos4Y();
+		}else {
+			return 2000;
+		}
+	}
 
 }

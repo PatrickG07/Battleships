@@ -656,7 +656,7 @@
       <Rectangle fx:id="rec3" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="30.0" onMouseClicked="#onRotate" onMousePressed="#onDrag" onMouseReleased="#onDrop" stroke="BLACK" strokeType="INSIDE" width="90.0" x="25.0" y="215.0" />
       <Rectangle fx:id="rec4" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="30.0" onMouseClicked="#onRotate" onMousePressed="#onDrag" onMouseReleased="#onDrop" stroke="BLACK" strokeType="INSIDE" width="120.0" x="25.0" y="260.0" />
       <Rectangle fx:id="rec5" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="30.0" onMouseClicked="#onRotate" onMousePressed="#onDrag" onMouseReleased="#onDrop" stroke="BLACK" strokeType="INSIDE" width="150.0" x="25.0" y="310.0" />
-      <Text fx:id="errortext" fill="RED" layoutX="276.0" layoutY="463.0" strokeType="OUTSIDE" strokeWidth="0.0">
+      <Text fx:id="errortext" fill="RED" layoutX="24.0" layoutY="465.0" strokeType="OUTSIDE" strokeWidth="0.0">
          <font>
             <Font size="24.0" />
          </font>

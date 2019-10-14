@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="528.0" prefWidth="773.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.pg.sinkships.controller.Controllerplay">
+<AnchorPane fx:id="AnchorPane" maxHeight="528.0" maxWidth="773.0" minHeight="528.0" minWidth="773.0" prefHeight="528.0" prefWidth="773.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.pg.sinkships.controller.Controllerplay">
    <children>
       <GridPane fx:id="griden" layoutX="414.0" layoutY="103.0">
         <columnConstraints>
