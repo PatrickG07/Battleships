@@ -7,7 +7,7 @@ package ch.pg.sinkships.model;
  */
 public class Ship4 {
 
-	Boolean destroyd = false;
+	Boolean destroyed = false;
 	Boolean Horizontal = true;
 
 	int pos1X, pos2X, pos3X, pos4X;
@@ -15,12 +15,12 @@ public class Ship4 {
 
 	int Health = 4;
 
-	public Boolean getDestroyd() {
-		return destroyd;
+	public Boolean getDestroyed() {
+		return destroyed;
 	}
 
-	public void setDestroyd(Boolean destroyd) {
-		this.destroyd = destroyd;
+	public void setDestroyed(Boolean destroyd) {
+		this.destroyed = destroyd;
 	}
 
 	public Boolean getHorizontal() {
@@ -102,17 +102,24 @@ public class Ship4 {
 	public void setHealth(int health) {
 		Health = health;
 	}
+
+	/**
+	 * get the exact positon in the grid by x * 10 + y
+	 * 
+	 * @param i
+	 * @return
+	 */
 	public int getPos(int i) {
-		if(i == 1) {
+		if (i == 1) {
 			return getPos1X() * 10 + getPos1Y();
-		}else if(i == 2){
+		} else if (i == 2) {
 			return getPos2X() * 10 + getPos2Y();
-		}else if(i == 3){
+		} else if (i == 3) {
 			return getPos3X() * 10 + getPos3Y();
-		}else if(i == 4){
+		} else if (i == 4) {
 			return getPos4X() * 10 + getPos4Y();
-		}else {
-			return 2000;
+		} else {
+			return 1000000;
 		}
 	}
 

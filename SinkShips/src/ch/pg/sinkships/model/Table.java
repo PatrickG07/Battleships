@@ -31,7 +31,7 @@ public class Table {
 	public void checkforhit(final int X, final int Y) {
 
 		// Ship1
-		if (Ship1.getDestroyd() == false) {
+		if (Ship1.getDestroyed() == false) {
 			if (Ship1.getPos1X() == X && Ship1.getPos1Y() == Y) {
 				checkforhit = true;
 				Ship1.setHealth(Ship1.getHealth() - 1);
@@ -40,12 +40,12 @@ public class Table {
 				Ship1.setHealth(Ship1.getHealth() - 1);
 			}
 			if (Ship1.getHealth() == 0) {
-				Ship1.setDestroyd(true);
+				Ship1.setDestroyed(true);
 			}
 		}
 
 		// Ship2
-		if (Ship2.getDestroyd() == false) {
+		if (Ship2.getDestroyed() == false) {
 			if (Ship2.getPos1X() == X && Ship2.getPos1Y() == Y) {
 				checkforhit = true;
 				Ship2.setHealth(Ship2.getHealth() - 1);
@@ -57,13 +57,13 @@ public class Table {
 				Ship2.setHealth(Ship2.getHealth() - 1);
 			}
 			if (Ship2.getHealth() == 0) {
-				Ship2.setDestroyd(true);
+				Ship2.setDestroyed(true);
 				ships = -1;
 			}
 		}
 
 		// Ship3
-		if (Ship3.getDestroyd() == false) {
+		if (Ship3.getDestroyed() == false) {
 			if (Ship3.getPos1X() == X && Ship3.getPos1Y() == Y) {
 				checkforhit = true;
 				Ship3.setHealth(Ship3.getHealth() - 1);
@@ -75,12 +75,12 @@ public class Table {
 				Ship3.setHealth(Ship3.getHealth() - 1);
 			}
 			if (Ship3.getHealth() == 0) {
-				Ship3.setDestroyd(true);
+				Ship3.setDestroyed(true);
 				ships = -1;
 			}
 		}
 		// Ship4
-		if (Ship4.getDestroyd() == false) {
+		if (Ship4.getDestroyed() == false) {
 			if (Ship4.getPos1X() == X && Ship4.getPos1Y() == Y) {
 				checkforhit = true;
 				Ship4.setHealth(Ship4.getHealth() - 1);
@@ -95,13 +95,13 @@ public class Table {
 				Ship4.setHealth(Ship4.getHealth() - 1);
 			}
 			if (Ship4.getHealth() == 0) {
-				Ship4.setDestroyd(true);
+				Ship4.setDestroyed(true);
 				ships = -1;
 			}
 		}
 
 		// Ship5
-		if (Ship5.getDestroyd() == false) {
+		if (Ship5.getDestroyed() == false) {
 			if (Ship5.getPos1X() == X && Ship5.getPos1Y() == Y) {
 				checkforhit = true;
 				Ship5.setHealth(Ship5.getHealth() - 1);
@@ -119,7 +119,7 @@ public class Table {
 				Ship5.setHealth(Ship5.getHealth() - 1);
 			}
 			if (Ship5.getHealth() == 0) {
-				Ship5.setDestroyd(true);
+				Ship5.setDestroyed(true);
 				ships = -1;
 			}
 		}

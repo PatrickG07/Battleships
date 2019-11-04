@@ -33,7 +33,7 @@ public class Client {
     public void connectToServer(Controllerplay controllerplay) throws Exception{
         this.mi = controllerplay;
         System.out.println("Connection to server...");
-        socketConn = new Socket("localhost", 3535);
+        socketConn = new Socket("192.168.99.113", 3535);
         isr = new InputStreamReader(socketConn.getInputStream());
         osw = new OutputStreamWriter(socketConn.getOutputStream());
         System.out.println("Conneted to server");

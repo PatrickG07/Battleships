@@ -307,8 +307,7 @@ public class Controllerplayer {
 	}
 
 	/**
-	 * creates the Ships and checks if the Ships has the correct Distance to each
-	 * other
+	 * creates the Ships and checks if the Ships has the correct Distance to each other
 	 */
 	private void createBoats() {
 		X = gridyou.getLayoutX() + 15;
@@ -316,7 +315,7 @@ public class Controllerplayer {
 		int sip1 = 2, sip2 = 3, sip3 = 3, sip4 = 4, sip5 = 5;
 		System.out.println("top left " + X + " " + Y);
 		/**
-		 * Pacing the ships
+		 * Placing the ships
 		 */
 		for (int y = 1; y <= 10; y++) {
 			Y = gridyou.getLayoutY() + 15;
@@ -401,7 +400,6 @@ public class Controllerplayer {
 					}
 					sip5--;
 				}
-
 			}
 		}
 
@@ -430,7 +428,6 @@ public class Controllerplayer {
 				for (int i = 1; i <= 9; i++) {
 					int ran = 0;
 					switch (i) {
-					// speed up the ball / circle after X bounces by the Rectangulars
 					case 1:
 						ran = -11;
 						break;

@@ -81,11 +81,11 @@ public class Controllerplay {
 			}
 		}
 
-		Game.table1.Ship1.setDestroyd(false);
-		Game.table1.Ship2.setDestroyd(false);
-		Game.table1.Ship3.setDestroyd(false);
-		Game.table1.Ship4.setDestroyd(false);
-		Game.table1.Ship5.setDestroyd(false);
+		Game.table1.Ship1.setDestroyed(false);
+		Game.table1.Ship2.setDestroyed(false);
+		Game.table1.Ship3.setDestroyed(false);
+		Game.table1.Ship4.setDestroyed(false);
+		Game.table1.Ship5.setDestroyed(false);
 
 		Game.table1.Ship1.setHealth(2);
 		Game.table1.Ship2.setHealth(3);
@@ -212,9 +212,9 @@ public class Controllerplay {
 
 			you.setImage(picture);
 
-			if (Game.table1.Ship1.getDestroyd() == true && Game.table1.Ship2.getDestroyd() == true
-					&& Game.table1.Ship3.getDestroyd() == true && Game.table1.Ship4.getDestroyd() == true
-					&& Game.table1.Ship5.getDestroyd() == true) { 
+			if (Game.table1.Ship1.getDestroyed() == true && Game.table1.Ship2.getDestroyed() == true
+					&& Game.table1.Ship3.getDestroyed() == true && Game.table1.Ship4.getDestroyed() == true
+					&& Game.table1.Ship5.getDestroyed() == true) { 
 
 				sendMessage("lost");
 
