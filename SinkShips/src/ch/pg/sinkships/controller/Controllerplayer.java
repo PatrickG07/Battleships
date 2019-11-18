@@ -10,6 +10,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
@@ -42,6 +43,8 @@ public class Controllerplayer {
 
 	@FXML
 	protected Button btserver, btclient;
+	
+	@FXML TextField TFip;
 
 	@FXML
 	protected Rectangle rec1, rec2, rec3, rec4, rec5;
@@ -102,6 +105,7 @@ public class Controllerplayer {
 		if (Game.table1.Ship1.getPos1X() != 0 && Game.table1.Ship2.getPos1X() != 0 && Game.table1.Ship3.getPos1X() != 0
 				&& Game.table1.Ship4.getPos1X() != 0 && Game.table1.Ship5.getPos1X() != 0) {
 			end = true;
+			Game.table1.ip = TFip.getText();
 
 			StartSinkShips.loadScene("/ch/pg/sinkships/view/Playground");
 		} else {
@@ -164,7 +168,6 @@ public class Controllerplayer {
 		Rectangle rec = (Rectangle) e.getSource();
 		String Rac = rec.getId();
 		switch (Rac) {
-		// speed up the ball / circle after X bounces by the Rectangulars
 		case "rec1":
 			if (Game.table1.Ship1.getHorizontal()) {
 				rec1.setHeight(60);
@@ -233,7 +236,6 @@ public class Controllerplayer {
 		event = e;
 		Rectangle rec = (Rectangle) e.getSource();
 		switch (rec.getId()) {
-		// speed up the ball / circle after X bounces by the Rectangulars
 		case "rec1":
 			drag1 = true;
 			break;
@@ -252,7 +254,6 @@ public class Controllerplayer {
 		}
 		if (again = true) {
 			final TranslateTransition transition = createTranslateTransition();
-			// createTranslateTransition();
 			moveRectangle(transition);
 			again = false;
 		}

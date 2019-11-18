@@ -10,10 +10,10 @@ import java.io.OutputStreamWriter;
 import java.net.Socket;
 
 import ch.pg.sinkships.controller.Controllerplay;
+import ch.pg.sinkships.model.Game;
 
 /**
- *
- * @author IDEA Developers
+ * Client Side Connection
  */
 public class Client {
     private static Client instance;
@@ -30,10 +30,21 @@ public class Client {
         return instance;
     }
     
+    /**
+     * Create a Connection to the Server with IP and Port 3535
+     * 
+     * @param controllerplay
+     * @throws Exception
+     */
     public void connectToServer(Controllerplay controllerplay) throws Exception{
         this.mi = controllerplay;
         System.out.println("Connection to server...");
-        socketConn = new Socket("192.168.99.113", 3535);
+        String ip = Game.table1.ip;
+        if(ip == "") {
+        	ip = "localhost";
+        }
+        System.out.println("IP: " + ip);
+        socketConn = new Socket(ip, 3535);
         isr = new InputStreamReader(socketConn.getInputStream());
         osw = new OutputStreamWriter(socketConn.getOutputStream());
         System.out.println("Conneted to server");
@@ -41,6 +52,9 @@ public class Client {
         listenForMessages();
     }
     
+    /**
+     * For receiving messages
+     */
     public void listenForMessages(){
         new Thread(new Runnable() {
             @Override
@@ -61,6 +75,12 @@ public class Client {
         }).start();
     }
     
+    /**
+     * For Sending Messages
+     * 
+     * @param message
+     * @throws Exception
+     */
     public void sendMessage(String message)throws Exception{
         osw.write(message);
         osw.flush();

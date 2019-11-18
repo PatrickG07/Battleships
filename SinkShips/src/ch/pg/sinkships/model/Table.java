@@ -20,8 +20,10 @@ public class Table {
 	public Ship4 Ship4 = new Ship4();
 	public Ship5 Ship5 = new Ship5();
 
+	public String ip;
+	
 	boolean checkforhit;
-
+	
 	/**
 	 * it checks if one Ship is hit and returns the checkforhit as true.
 	 * 
