@@ -80,7 +80,7 @@ public class Controllerplay {
 				}
 			}
 		}
-
+		
 		Game.table1.Ship1.setDestroyed(false);
 		Game.table1.Ship2.setDestroyed(false);
 		Game.table1.Ship3.setDestroyed(false);
@@ -301,8 +301,10 @@ public class Controllerplay {
 
 		if (order.equals("lost")) {
 			Ttext.setText("you have lost");
+			Sound("/ch/pg/sinkships/sources/sounds/Lost.wav");
 		} else {
 			Ttext.setText("you have won");
+			Sound("/ch/pg/sinkships/sources/sounds/Victory.wav");
 		}
 
 		try {
