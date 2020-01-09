@@ -4,6 +4,7 @@ import java.awt.MouseInfo;
 import java.awt.Point;
 
 import ch.pg.sinkships.model.Game;
+import ch.pg.sinkships.model.Ship;
 import ch.pg.sinkships.view.StartSinkShips;
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
@@ -50,6 +51,8 @@ public class Controllerplayer {
 	@FXML
 	protected Rectangle rec1, rec2, rec3, rec4, rec5;
 
+	Rectangle[] recArr = new Rectangle[] { rec1, rec2, rec3, rec4, rec5 };
+
 	@FXML
 	protected GridPane griden, gridyou;
 
@@ -71,6 +74,11 @@ public class Controllerplayer {
 	 * @return
 	 */
 	private TranslateTransition createTranslateTransition() {
+		recArr[0] = rec1;
+		recArr[1] = rec2;
+		recArr[2] = rec3;
+		recArr[3] = rec4;
+		recArr[4] = rec5;
 		final TranslateTransition transition = new TranslateTransition(TRANSLATE_DURATION, rec1);
 		transition.setOnFinished(new EventHandler<ActionEvent>() {
 			@Override
@@ -103,33 +111,42 @@ public class Controllerplayer {
 	@FXML
 	protected void Play(ActionEvent e) {
 		createBoats();
-		if (Game.table1.Ship1.getPos1X() != 0 && Game.table1.Ship2.getPos1X() != 0 && Game.table1.Ship3.getPos1X() != 0
-				&& Game.table1.Ship4.getPos1X() != 0 && Game.table1.Ship5.getPos1X() != 0) {
-			if (Game.table1.Ship1.getPos2X() != 0 && Game.table1.Ship2.getPos3X() != 0
-					&& Game.table1.Ship3.getPos3X() != 0 && Game.table1.Ship4.getPos4X() != 0
-					&& Game.table1.Ship5.getPos5X() != 0) {
-				end = true;
-				Game.table1.ip = TFip.getText();
+		if (Game.table1.ship[0].getPos(0, 0) != 0 && Game.table1.ship[1].getPos(0, 0) != 0
+				&& Game.table1.ship[2].getPos(0, 0) != 0 && Game.table1.ship[3].getPos(0, 0) != 0
+				&& Game.table1.ship[4].getPos(0, 0) != 0 && Game.table1.ship[0].getPos(0, 1) != 0
+				&& Game.table1.ship[1].getPos(0, 1) != 0 && Game.table1.ship[2].getPos(0, 1) != 0
+				&& Game.table1.ship[3].getPos(0, 1) != 0 && Game.table1.ship[4].getPos(0, 1) != 0) {
+			end = true;
+			Game.table1.ip = TFip.getText();
 
-				StartSinkShips.loadScene("/ch/pg/sinkships/view/Playground");
-			}
+			StartSinkShips.loadScene("/ch/pg/sinkships/view/Playground");
 		} else {
 			String ship1 = "1: not placed ", ship2 = "2: not placed ", ship3 = "3: not placed ",
 					ship4 = "4: not placed ", ship5 = "5: not placed ";
-			if (Game.table1.Ship1.getPos1X() != 0 || Game.table1.Ship1.getPos2X() != 0) {
-				ship1 = "";
-			}
-			if (Game.table1.Ship2.getPos1X() != 0 || Game.table1.Ship2.getPos3X() != 0) {
-				ship2 = "";
-			}
-			if (Game.table1.Ship3.getPos1X() != 0 || Game.table1.Ship3.getPos3X() != 0) {
-				ship3 = "";
-			}
-			if (Game.table1.Ship4.getPos1X() != 0 || Game.table1.Ship4.getPos4X() != 0) {
-				ship4 = "";
-			}
-			if (Game.table1.Ship5.getPos1X() != 0 || Game.table1.Ship5.getPos5X() != 0) {
-				ship5 = "";
+			int num = 1;
+			for (Ship s : Game.table1.ship) {
+				if (s.getPos(0, 0) != 0 || s.getPos(0, 1) != 0) {
+					System.out.println(java.util.Arrays.asList(Game.table1.ship).indexOf(s) + " " + s.getPos(0, 0) + " : " + s.getPos(0, 1));
+					ship1 = "";
+					switch (num) {
+					case 1:
+						ship1 = "";
+						break;
+					case 2:
+						ship2 = "";
+						break;
+					case 3:
+						ship3 = "";
+						break;
+					case 4:
+						ship4 = "";
+						break;
+					case 5:
+						ship5 = "";
+						break;
+					}
+				}
+				num++;
 			}
 			errortext.setText(ship1 + ship2 + ship3 + ship4 + ship5);
 		}
@@ -174,58 +191,58 @@ public class Controllerplayer {
 		String Rac = rec.getId();
 		switch (Rac) {
 		case "rec1":
-			if (Game.table1.Ship1.getHorizontal()) {
+			if (Game.table1.ship[0].getHorizontal()) {
 				rec1.setHeight(60);
 				rec1.setWidth(30);
-				Game.table1.Ship1.setHorizontal(false);
+				Game.table1.ship[0].setHorizontal(false);
 			} else {
 				rec1.setHeight(30);
 				rec1.setWidth(60);
-				Game.table1.Ship1.setHorizontal(true);
+				Game.table1.ship[0].setHorizontal(true);
 			}
 			break;
 		case "rec2":
-			if (Game.table1.Ship2.getHorizontal()) {
+			if (Game.table1.ship[1].getHorizontal()) {
 				rec2.setHeight(90);
 				rec2.setWidth(30);
-				Game.table1.Ship2.setHorizontal(false);
+				Game.table1.ship[1].setHorizontal(false);
 			} else {
 				rec2.setHeight(30);
 				rec2.setWidth(90);
-				Game.table1.Ship2.setHorizontal(true);
+				Game.table1.ship[1].setHorizontal(true);
 			}
 			break;
 		case "rec3":
-			if (Game.table1.Ship3.getHorizontal()) {
+			if (Game.table1.ship[2].getHorizontal()) {
 				rec3.setHeight(90);
 				rec3.setWidth(30);
-				Game.table1.Ship3.setHorizontal(false);
+				Game.table1.ship[2].setHorizontal(false);
 			} else {
 				rec3.setHeight(30);
 				rec3.setWidth(90);
-				Game.table1.Ship3.setHorizontal(true);
+				Game.table1.ship[2].setHorizontal(true);
 			}
 			break;
 		case "rec4":
-			if (Game.table1.Ship4.getHorizontal()) {
+			if (Game.table1.ship[3].getHorizontal()) {
 				rec4.setHeight(120);
 				rec4.setWidth(30);
-				Game.table1.Ship4.setHorizontal(false);
+				Game.table1.ship[3].setHorizontal(false);
 			} else {
 				rec4.setHeight(30);
 				rec4.setWidth(120);
-				Game.table1.Ship4.setHorizontal(true);
+				Game.table1.ship[3].setHorizontal(true);
 			}
 			break;
 		case "rec5":
-			if (Game.table1.Ship5.getHorizontal()) {
+			if (Game.table1.ship[4].getHorizontal()) {
 				rec5.setHeight(150);
 				rec5.setWidth(30);
-				Game.table1.Ship5.setHorizontal(false);
+				Game.table1.ship[4].setHorizontal(false);
 			} else {
 				rec5.setHeight(30);
 				rec5.setWidth(150);
-				Game.table1.Ship5.setHorizontal(true);
+				Game.table1.ship[4].setHorizontal(true);
 			}
 			break;
 		}
@@ -319,8 +336,10 @@ public class Controllerplayer {
 	private void createBoats() {
 		X = gridyou.getLayoutX() + 15;
 
-		int sip1 = 2, sip2 = 3, sip3 = 3, sip4 = 4, sip5 = 5;
-		System.out.println("top left " + X + " " + Y);
+		// sip1 = 2, sip2 = 3, sip3 = 3, sip4 = 4, sip5 = 5
+
+		int[] sip = new int[] { 2, 3, 3, 4, 5 };
+
 		/**
 		 * Placing the ships
 		 */
@@ -329,83 +348,15 @@ public class Controllerplayer {
 			X = X + 30;
 			for (int x = 1; x <= 10; x++) {
 				Y = Y + 30;
-				if (X > rec1.getX() && X < rec1.getX() + rec1.getWidth() && Y > rec1.getY()
-						&& Y < rec1.getY() + rec1.getHeight()) {
-					if (sip1 == 2) {
-						Game.table1.Ship1.setPos1X(x);
-						Game.table1.Ship1.setPos1Y(y);
-						System.out.println("true1");
-					} else if (sip1 == 1) {
-						Game.table1.Ship1.setPos2X(x);
-						Game.table1.Ship1.setPos2Y(y);
-						System.out.println("true2");
+				for (int r = 0; r <= 4; r++) {
+					if (X > recArr[r].getX() && X < recArr[r].getX() + recArr[r].getWidth() && Y > recArr[r].getY()
+							&& Y < recArr[r].getY() + recArr[r].getHeight()) {
+						if (sip[r] > 0) {
+							Game.table1.ship[r].setPos(sip[r] - 1, 0, x);
+							Game.table1.ship[r].setPos(sip[r] - 1, 1, y);
+							sip[r]--;
+						}
 					}
-					sip1--;
-				}
-				if (X > rec2.getX() && X < rec2.getX() + rec2.getWidth() && Y > rec2.getY()
-						&& Y < rec2.getY() + rec2.getHeight()) {
-					if (sip2 == 3) {
-						Game.table1.Ship2.setPos1X(x);
-						Game.table1.Ship2.setPos1Y(y);
-					} else if (sip2 == 2) {
-						Game.table1.Ship2.setPos2X(x);
-						Game.table1.Ship2.setPos2Y(y);
-					} else if (sip2 == 1) {
-						Game.table1.Ship2.setPos3X(x);
-						Game.table1.Ship2.setPos3Y(y);
-					}
-					sip2--;
-				}
-				if (X > rec3.getX() && X < rec3.getX() + rec3.getWidth() && Y > rec3.getY()
-						&& Y < rec3.getY() + rec3.getHeight()) {
-					if (sip3 == 3) {
-						Game.table1.Ship3.setPos1X(x);
-						Game.table1.Ship3.setPos1Y(y);
-					} else if (sip3 == 2) {
-						Game.table1.Ship3.setPos2X(x);
-						Game.table1.Ship3.setPos2Y(y);
-					} else if (sip3 == 1) {
-						Game.table1.Ship3.setPos3X(x);
-						Game.table1.Ship3.setPos3Y(y);
-					}
-					sip3--;
-				}
-				if (X > rec4.getX() && X < rec4.getX() + rec4.getWidth() && Y > rec4.getY()
-						&& Y < rec4.getY() + rec4.getHeight()) {
-					if (sip4 == 4) {
-						Game.table1.Ship4.setPos1X(x);
-						Game.table1.Ship4.setPos1Y(y);
-					} else if (sip4 == 3) {
-						Game.table1.Ship4.setPos2X(x);
-						Game.table1.Ship4.setPos2Y(y);
-					} else if (sip4 == 2) {
-						Game.table1.Ship4.setPos3X(x);
-						Game.table1.Ship4.setPos3Y(y);
-					} else if (sip4 == 1) {
-						Game.table1.Ship4.setPos4X(x);
-						Game.table1.Ship4.setPos4Y(y);
-					}
-					sip4--;
-				}
-				if (X > rec5.getX() && X < rec5.getX() + rec5.getWidth() && Y > rec5.getY()
-						&& Y < rec5.getY() + rec5.getHeight()) {
-					if (sip5 == 5) {
-						Game.table1.Ship5.setPos1X(x);
-						Game.table1.Ship5.setPos1Y(y);
-					} else if (sip5 == 4) {
-						Game.table1.Ship5.setPos2X(x);
-						Game.table1.Ship5.setPos2Y(y);
-					} else if (sip5 == 3) {
-						Game.table1.Ship5.setPos3X(x);
-						Game.table1.Ship5.setPos3Y(y);
-					} else if (sip5 == 2) {
-						Game.table1.Ship5.setPos4X(x);
-						Game.table1.Ship5.setPos4Y(y);
-					} else if (sip5 == 1) {
-						Game.table1.Ship5.setPos5X(x);
-						Game.table1.Ship5.setPos5Y(y);
-					}
-					sip5--;
 				}
 			}
 		}
@@ -445,84 +396,16 @@ public class Controllerplayer {
 						break;
 					}
 
-					// Ship 1
-					System.out.println("o / p " + o + " " + p);
-					if (p < 3) {
-						if (Game.table1.Ship1.getPos(p) < 2000) {
-							if (Game.table1.Ship1.getPos(p) + ran == Game.table1.Ship2.getPos(o)) {
-								System.out.println("true11*******************************************************");
-								System.out.println(Game.table1.Ship1.getPos(p) + " +  " + ran + "  "
-										+ Game.table1.Ship2.getPos(o));
-
-								Game.table1.Ship1.setPos1X(0);
-							}
-							if (Game.table1.Ship1.getPos(p) + ran == Game.table1.Ship3.getPos(o)) {
-								System.out.println("true12*******************************************************");
-								System.out.println(Game.table1.Ship1.getPos(p) + " +  " + ran + "  "
-										+ Game.table1.Ship3.getPos(o));
-
-								Game.table1.Ship1.setPos1X(0);
-							}
-							if (Game.table1.Ship1.getPos(p) + ran == Game.table1.Ship4.getPos(o)) {
-								System.out.println("true13******************************************************");
-								System.out.println(Game.table1.Ship1.getPos(p) + " +  " + ran + "   "
-										+ Game.table1.Ship4.getPos(o));
-
-								Game.table1.Ship1.setPos1X(0);
-							}
-							if (Game.table1.Ship1.getPos(p) + ran == Game.table1.Ship5.getPos(o)) {
-								System.out.println("true14*******************************************************");
-								System.out.println(Game.table1.Ship1.getPos(p) + " +  " + ran + "  "
-										+ Game.table1.Ship5.getPos(o));
-
-								Game.table1.Ship1.setPos1X(0);
-								Game.table1.Ship5.setPos1X(0);
+					for (int t = 0; t <= 4; t++) {
+						if (Game.table1.ship[t].getPos(p) < 2000 || Game.table1.ship[t].getPos(p) != 1000000) {
+							for (int s = t + 1; s <= 4; s++) {
+								if (Game.table1.ship[t].getPos(p) + ran == Game.table1.ship[s].getPos(o)) {
+									Game.table1.ship[t].setPos(0, 0, 0);
+									Game.table1.ship[s].setPos(0, 0, 0);
+								}
 							}
 						}
 					}
-					// ship 2
-					if (p < 4) {
-						if (Game.table1.Ship2.getPos(p) < 2000) {
-							if (Game.table1.Ship2.getPos(p) + ran == Game.table1.Ship3.getPos(o)) {
-								System.out.println("true21*******************************************************");
-								Game.table1.Ship2.setPos1X(0);
-							}
-							if (Game.table1.Ship2.getPos(p) + ran == Game.table1.Ship4.getPos(o)) {
-								System.out.println("true22*******************************************************");
-								Game.table1.Ship2.setPos1X(0);
-							}
-							if (Game.table1.Ship2.getPos(p) + ran == Game.table1.Ship5.getPos(o)) {
-								System.out.println("true23*******************************************************");
-								Game.table1.Ship2.setPos1X(0);
-								Game.table1.Ship5.setPos1X(0);
-							}
-						}
-					}
-					// ship 3
-					if (p < 4) {
-						if (Game.table1.Ship3.getPos(p) < 2000) {
-							if (Game.table1.Ship3.getPos(p) + ran == Game.table1.Ship4.getPos(o)) {
-								System.out.println("true31*******************************************************");
-								Game.table1.Ship3.setPos1X(0);
-							}
-							if (Game.table1.Ship3.getPos(p) + ran == Game.table1.Ship5.getPos(o)) {
-								System.out.println("true32*******************************************************");
-								Game.table1.Ship3.setPos1X(0);
-								Game.table1.Ship5.setPos1X(0);
-							}
-						}
-					}
-					// ship 4
-					if (p < 5) {
-						if (Game.table1.Ship4.getPos(p) < 2000) {
-							if (Game.table1.Ship4.getPos(p) + ran == Game.table1.Ship5.getPos(o)) {
-								System.out.println("true41*******************************************************");
-								Game.table1.Ship4.setPos1X(0);
-								Game.table1.Ship5.setPos1X(0);
-							}
-						}
-					}
-					// ship 5 not needed already got checked
 				}
 			}
 		}

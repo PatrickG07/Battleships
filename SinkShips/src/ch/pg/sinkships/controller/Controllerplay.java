@@ -9,6 +9,7 @@ import javax.sound.sampled.Clip;
 import ch.pg.sinkships.controller.client.Client;
 import ch.pg.sinkships.controller.server.Server;
 import ch.pg.sinkships.model.Game;
+import ch.pg.sinkships.model.Ship;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.image.Image;
@@ -55,7 +56,6 @@ public class Controllerplay {
 	 */
 	@FXML
 	public void initialize() {
-
 		if (Game.actualTable == "table1") {
 			StartServer();
 			griden.setDisable(true);
@@ -71,27 +71,21 @@ public class Controllerplay {
 				X = x;
 				Y = y;
 				getNodeFromGridPaneYou();
-				Game.table1.checkforhit(x, y);
-				if (Game.table1.isCheckforhit() == true) {
+				if (Game.table1.checkforhit(x, y) == true) {
 					picture = new Image("/ch/pg/sinkships/sources/pictures/ship.jpg");
 					ImageView you = (ImageView) nodes;
 					you.setImage(picture);
-					Game.table1.setCheckforhit(false);
 				}
 			}
 		}
 		
-		Game.table1.Ship1.setDestroyed(false);
-		Game.table1.Ship2.setDestroyed(false);
-		Game.table1.Ship3.setDestroyed(false);
-		Game.table1.Ship4.setDestroyed(false);
-		Game.table1.Ship5.setDestroyed(false);
-
-		Game.table1.Ship1.setHealth(2);
-		Game.table1.Ship2.setHealth(3);
-		Game.table1.Ship3.setHealth(3);
-		Game.table1.Ship4.setHealth(4);
-		Game.table1.Ship5.setHealth(5);
+		int health = 2;
+		for(Ship i : Game.table1.ship) {
+			i.setDestroyed(false);
+			
+			i.setHealth(health);
+			health++;
+		}
 	}
 
 	/**
@@ -192,9 +186,7 @@ public class Controllerplay {
 			X = Integer.parseInt(arrStr[0]);
 			Y = Integer.parseInt(arrStr[1]);
 
-			Game.table1.checkforhit(X, Y);
-
-			if (Game.table1.isCheckforhit() == true) {
+			if (Game.table1.checkforhit(X, Y) == true) {
 				picture = new Image("/ch/pg/sinkships/sources/pictures/hit.jpg");
 				Sound("/ch/pg/sinkships/sources/sounds/Explosion.wav");
 				sendMessage("hit");
@@ -208,13 +200,11 @@ public class Controllerplay {
 			getNodeFromGridPaneYou();
 			ImageView you = (ImageView) nodes;
 
-			Game.table1.setCheckforhit(false);
-
 			you.setImage(picture);
 
-			if (Game.table1.Ship1.getDestroyed() == true && Game.table1.Ship2.getDestroyed() == true
-					&& Game.table1.Ship3.getDestroyed() == true && Game.table1.Ship4.getDestroyed() == true
-					&& Game.table1.Ship5.getDestroyed() == true) { 
+			if (Game.table1.ship[0].getDestroyed() == true && Game.table1.ship[1].getDestroyed() == true
+					&& Game.table1.ship[2].getDestroyed() == true && Game.table1.ship[3].getDestroyed() == true
+					&& Game.table1.ship[4].getDestroyed() == true) { 
 
 				sendMessage("lost");
 
