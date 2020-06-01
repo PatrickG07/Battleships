@@ -192,56 +192,56 @@ public class Controllerplayer {
 		switch (Rac) {
 		case "rec1":
 			if (Game.table1.ship[0].getHorizontal()) {
-				rec1.setHeight(60);
-				rec1.setWidth(30);
+				recArr[0].setHeight(60);
+				recArr[0].setWidth(30);
 				Game.table1.ship[0].setHorizontal(false);
 			} else {
-				rec1.setHeight(30);
-				rec1.setWidth(60);
+				recArr[0].setHeight(30);
+				recArr[0].setWidth(60);
 				Game.table1.ship[0].setHorizontal(true);
 			}
 			break;
 		case "rec2":
 			if (Game.table1.ship[1].getHorizontal()) {
-				rec2.setHeight(90);
-				rec2.setWidth(30);
+				recArr[1].setHeight(90);
+				recArr[1].setWidth(30);
 				Game.table1.ship[1].setHorizontal(false);
 			} else {
-				rec2.setHeight(30);
-				rec2.setWidth(90);
+				recArr[1].setHeight(30);
+				recArr[1].setWidth(90);
 				Game.table1.ship[1].setHorizontal(true);
 			}
 			break;
 		case "rec3":
 			if (Game.table1.ship[2].getHorizontal()) {
-				rec3.setHeight(90);
-				rec3.setWidth(30);
+				recArr[2].setHeight(90);
+				recArr[2].setWidth(30);
 				Game.table1.ship[2].setHorizontal(false);
 			} else {
-				rec3.setHeight(30);
-				rec3.setWidth(90);
+				recArr[2].setHeight(30);
+				recArr[2].setWidth(90);
 				Game.table1.ship[2].setHorizontal(true);
 			}
 			break;
 		case "rec4":
 			if (Game.table1.ship[3].getHorizontal()) {
-				rec4.setHeight(120);
-				rec4.setWidth(30);
+				recArr[3].setHeight(120);
+				recArr[3].setWidth(30);
 				Game.table1.ship[3].setHorizontal(false);
 			} else {
-				rec4.setHeight(30);
-				rec4.setWidth(120);
+				recArr[3].setHeight(30);
+				recArr[3].setWidth(120);
 				Game.table1.ship[3].setHorizontal(true);
 			}
 			break;
 		case "rec5":
 			if (Game.table1.ship[4].getHorizontal()) {
-				rec5.setHeight(150);
-				rec5.setWidth(30);
+				recArr[4].setHeight(150);
+				recArr[4].setWidth(30);
 				Game.table1.ship[4].setHorizontal(false);
 			} else {
-				rec5.setHeight(30);
-				rec5.setWidth(150);
+				recArr[4].setHeight(30);
+				recArr[4].setWidth(150);
 				Game.table1.ship[4].setHorizontal(true);
 			}
 			break;
@@ -312,20 +312,20 @@ public class Controllerplayer {
 		posY = StartSinkShips.getPosY();
 
 		if (drag1 == true) {
-			rec1.setX(p.x - posX - 10);
-			rec1.setY(p.y - posY - 35);
+			recArr[0].setX(p.x - posX - 10);
+			recArr[0].setY(p.y - posY - 35);
 		} else if (drag2 == true) {
-			rec2.setX(p.x - posX - 10);
-			rec2.setY(p.y - posY - 35);
+			recArr[1].setX(p.x - posX - 10);
+			recArr[1].setY(p.y - posY - 35);
 		} else if (drag3 == true) {
-			rec3.setX(p.x - posX - 10);
-			rec3.setY(p.y - posY - 35);
+			recArr[2].setX(p.x - posX - 10);
+			recArr[2].setY(p.y - posY - 35);
 		} else if (drag4 == true) {
-			rec4.setX(p.x - posX - 10);
-			rec4.setY(p.y - posY - 35);
+			recArr[3].setX(p.x - posX - 10);
+			recArr[3].setY(p.y - posY - 35);
 		} else if (drag5 == true) {
-			rec5.setX(p.x - posX - 10);
-			rec5.setY(p.y - posY - 35);
+			recArr[4].setX(p.x - posX - 10);
+			recArr[4].setY(p.y - posY - 35);
 		}
 	}
 
@@ -368,34 +368,9 @@ public class Controllerplayer {
 		for (int o = 1; o <= 5; o++) {
 			for (int p = 1; p <= 5; p++) {
 				for (int i = 1; i <= 9; i++) {
-					int ran = 0;
-					switch (i) {
-					case 1:
-						ran = -11;
-						break;
-					case 2:
-						ran = -10;
-						break;
-					case 3:
-						ran = -9;
-						break;
-					case 4:
-						ran = -1;
-						break;
-					case 6:
-						ran = 1;
-						break;
-					case 7:
-						ran = 9;
-						break;
-					case 8:
-						ran = 10;
-						break;
-					case 9:
-						ran = 11;
-						break;
-					}
-
+					int ArrRan[] = new int[] {-11, -10, -9, -1, 1, 9, 10, 11};
+					int ran = ArrRan[i];
+					
 					for (int t = 0; t <= 4; t++) {
 						if (Game.table1.ship[t].getPos(p) < 2000 || Game.table1.ship[t].getPos(p) != 1000000) {
 							for (int s = t + 1; s <= 4; s++) {
